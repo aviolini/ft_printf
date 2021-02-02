@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/02 16:56:54 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/02 17:27:39 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int ft_printf(const char *str, ...)
 	va_start(ap, str);
 	if (ft_check_num_arg(ap, t) == 0)
 		return (printf("errore_argomenti\n"));
-//	ap = NULL;
 	va_start(ap,str);
 	while (str[i])
 		{
