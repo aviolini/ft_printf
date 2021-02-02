@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/02 16:17:55 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/02 16:56:54 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,14 @@ int ft_printf(const char *str, ...)
 	int		t;
 	int		i;
 	va_list	ap;
-
+//	int		x;
 
 	i = 0;
 	t = ft_numarg((char *)str);
+	va_start(ap, str);
+	if (ft_check_num_arg(ap, t) == 0)
+		return (printf("errore_argomenti\n"));
+//	ap = NULL;
 	va_start(ap,str);
 	while (str[i])
 		{
@@ -56,20 +60,4 @@ char	*ft_typearg(char c, va_list ap)
 		(ft_putnbr(x));
 	}
 	return NULL;
-}
-
-int		ft_numarg(char *str)
-{
-	int i;
-	int numarg;
-
-	i = 0;
-	numarg = 0;
-	while (str[i])
-	{
-		if (str[i] == '%' && str[i + 1] != '%' && str[i - 1] != '%')
-			numarg++;
-		i++;
-	}
-	return (numarg);
 }
