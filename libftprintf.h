@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/02 17:11:02 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/02 17:26:10 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ char	*ft_typearg(char c, va_list ap);
 void	ft_putnbr(int n);
 void	ft_putstr(char *s);
 int		ft_check_num_arg(va_list ap, int n);
-int		ft_check_value_arg(char *str);
 
 #endif
