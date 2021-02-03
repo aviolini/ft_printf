@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/02 18:47:43 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/03 13:45:22 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int ft_printf(const char *str, ...)
 {
-	int			t;
+//	int			index;
 	int			i;
 	va_list		ap;
-	t_struct	*struct;
+	t_strutt	*strutt;
+	int			type_arg;
 
 	i = 0;
 	va_start(ap,str);
@@ -26,37 +27,40 @@ int ft_printf(const char *str, ...)
 
 			if (str[i] == '%' && str[i + 1] != '%' && str[i - 1] != '%')
 			{
-				struct = (t_struct *)malloc(sizeof(t_struct));
-				ft_init_struct(struct);
-				ft_typearg(struct, str,i + 1, ap);
-				free(struct);
-			//	i = i + 1;
+				strutt = (t_strutt *)malloc(sizeof(t_strutt));
+			//	strutt = NULL;
+				ft_init_strutt(strutt);
+				ft_printstrutt(strutt);
+				i = ft_typeflag(strutt, str, i + 1, ap);
+				//printf("i: %d\n", i);
+				i = ft_typewidthprec(strutt, str, i, ap);
+				ft_printstrutt(strutt);
+				type_arg = ft_typearg(strutt,str, i, ap);
+				//if (type_arg != 0)
+					//
+				ft_printstrutt(strutt);
+				printf("type_arg:%i\n",type_arg);
+				i = i + 1;
 			}
-			else
-				write(1,&str[i],1);
+			else if (str[i] == '%' && str[i + 1] == '%')
+				i = i + 1;
+			write(1,&str[i],1);
 			i++;
 		}
 	va_end(ap);
 	return (0);
 }
 
-void	ft_typearg(t_struct *struct, char *s, int i, va_list ap)
+void	ft_printstrutt(t_strutt	*strutt)
 {
-	int		x;
-	char	*txt;
-	int		z;
-
-	if (str[i] == '-')
-	{
-		struct->flag_minus = 1;
-		i++;
-	}
-	if (str[i] == '0')
-	{
-		struct->flag_zero = 1;
-		i++;
-	}
-	if (str[i] == )    ///vedere se lo 0 sta prima del -
-
-	return NULL;
+	printf("------strutt--------\n");
+	printf("strutt->flagminus : %i\n", strutt->flag_minus);
+	printf("strutt->flag_zero : %i\n", strutt->flag_zero);
+	printf("strutt->width : %i\n", strutt->width);
+	printf("strutt->dot : %i\n", strutt->dot);
+	printf("strutt->precision : %i\n", strutt->precision);
+	printf("strutt->flag_pre_va : %i\n", strutt->flag_pre_va);
+	printf("strutt->num_m : %i\n", strutt->num_m);
+	printf("type : %i\n", strutt->type);
+	printf("------------------------\n");
 }
