@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/03 15:11:38 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/03 15:44:16 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_option
 	int 	precision;
 	int 	flag_pre_va;
 	int 	num_m;
-	int 	type;
+	char 	type;
 } 			t_strutt;
 
 int			ft_printf(const char *str, ...);
@@ -35,7 +35,7 @@ int			ft_strlen(char *str);
 int			ft_numarg(char *str);
 int			ft_typeflag(t_strutt *strutt, const char *str,
 	int i, va_list ap);
-int			ft_typearg(t_strutt *strutt, const char *str,
+char		ft_typearg(t_strutt *strutt, const char *str,
 	int i, va_list ap);
 int			ft_typeprecision(t_strutt *strutt, const char *str,
 	int i, va_list ap);
@@ -54,7 +54,8 @@ void		ft_printstrutt(t_strutt *strutt);
 /*
 CONTROLLARE CHAR * E CONST CHAR *
 CONTROLLARE SE IL TYPE ARG E DIVERSO DA QUELLI DA SUBJECT
-IL MALLOC FUORI DAL CICLO?
+IL MALLOC FUORI DAL CICLO? ANCHE FT_INIT_STRUTT
 RETURN INCREMENTATO DEGLI ARGOMENTI
+TOGLIERE AP E ALTRI ARGOMENTI DOVE NON SERVONO
 
 */

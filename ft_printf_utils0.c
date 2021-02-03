@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:15:37 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/03 15:11:33 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/03 15:46:53 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,22 +93,22 @@ int		ft_typeprecision(t_strutt *strutt, const char *str, int i, va_list ap)
 	return (i);
 }
 
-int		ft_typearg(t_strutt *strutt, const char *str, int i, va_list ap)
+char	ft_typearg(t_strutt *strutt, const char *str, int i, va_list ap)
 {
 	(void)ap;
 	(void)strutt;         //cspdiuxX%
 
 	if((str[i]) == 'c')
-		return (1);
+		return ('c');
 	if((str[i]) == 's')
-		return (2);
+		return ('s');
 	if((str[i]) == 'p')
-		return (3);
+		return ('p');
 	if((str[i]) == 'd' || (str[i]) == 'i')
-		return (4);
+		return ('d');
 	if((str[i]) == 'x')
-		return (5);
+		return ('x');
 	if ((str[i]) == 'X')
-		return (6);
-	return (0);
+		return ('X');
+	return (NULL);
 }
