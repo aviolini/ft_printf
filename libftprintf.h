@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/03 13:36:29 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/03 15:11:38 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ int			ft_typeflag(t_strutt *strutt, const char *str,
 	int i, va_list ap);
 int			ft_typearg(t_strutt *strutt, const char *str,
 	int i, va_list ap);
-int			ft_typewidthprec(t_strutt *strutt, const char *str,
+int			ft_typeprecision(t_strutt *strutt, const char *str,
+	int i, va_list ap);
+int			ft_typewidth(t_strutt *strutt, const char *str,
 	int i, va_list ap);
 void		ft_putnbr(int n);
 void		ft_putstr(char *str);
@@ -48,3 +50,11 @@ void		ft_printstrutt(t_strutt *strutt);
 
 
 #endif
+
+/*
+CONTROLLARE CHAR * E CONST CHAR *
+CONTROLLARE SE IL TYPE ARG E DIVERSO DA QUELLI DA SUBJECT
+IL MALLOC FUORI DAL CICLO?
+RETURN INCREMENTATO DEGLI ARGOMENTI
+
+*/

@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/03 13:45:22 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/03 15:09:23 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 int ft_printf(const char *str, ...)
 {
-//	int			index;
+	int			ret;
 	int			i;
 	va_list		ap;
 	t_strutt	*strutt;
 	int			type_arg;
 
 	i = 0;
+	ret = 0;
 	va_start(ap,str);
 	while (str[i])
 		{
@@ -28,27 +29,22 @@ int ft_printf(const char *str, ...)
 			if (str[i] == '%' && str[i + 1] != '%' && str[i - 1] != '%')
 			{
 				strutt = (t_strutt *)malloc(sizeof(t_strutt));
-			//	strutt = NULL;
 				ft_init_strutt(strutt);
-				ft_printstrutt(strutt);
 				i = ft_typeflag(strutt, str, i + 1, ap);
-				//printf("i: %d\n", i);
-				i = ft_typewidthprec(strutt, str, i, ap);
-				ft_printstrutt(strutt);
+				i = ft_typewidth(strutt, str, i, ap);
+				i = ft_typeprecision(strutt,str,i,ap);
 				type_arg = ft_typearg(strutt,str, i, ap);
-				//if (type_arg != 0)
-					//
-				ft_printstrutt(strutt);
-				printf("type_arg:%i\n",type_arg);
-				i = i + 1;
+				i++;
 			}
 			else if (str[i] == '%' && str[i + 1] == '%')
 				i = i + 1;
 			write(1,&str[i],1);
+			ret++;
 			i++;
 		}
+	ft_printstrutt(strutt);
 	va_end(ap);
-	return (0);
+	return (ret);
 }
 
 void	ft_printstrutt(t_strutt	*strutt)

@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:15:37 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/03 13:42:59 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/03 15:11:33 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ft_init_strutt(t_strutt *strutt)
 
 int		ft_typeflag(t_strutt *strutt, const char *str, int i, va_list ap)
 {
-	int		x;
 	(void)ap;
 
 	if (str[i] == '0' && str[i + 1] != '-')
@@ -49,42 +48,55 @@ int		ft_typeflag(t_strutt *strutt, const char *str, int i, va_list ap)
 	return (i);
 }
 
-int		ft_typewidthprec(t_strutt *strutt, const char *str, int i, va_list ap)
+int		ft_typewidth(t_strutt *strutt, const char *str, int i, va_list ap)
 {
+	int x;
+
+	x = 0;
 	if (str[i] == '*')
-	{
-		strutt->width = -2;
-		i++;
-	}
-/*	if (str[i] >= 0 && str[i] <= 9)
 	{
 		x = va_arg(ap, int);
 		strutt->width = x;
+		i++;                 //FORSE CI VUOLE UN RETURN DI i DIRETTO
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		x = (str[i] - 48) + (x * 10);
 		i++;
 	}
-*/	if (str[i] == '.')
+	strutt->width = x;
+	return (i);
+}
+
+int		ft_typeprecision(t_strutt *strutt, const char *str, int i, va_list ap)
+{
+	int x;
+
+	x = 0;
+	if (str[i] == '.')
 	{
 		strutt->dot = 1;
 		i++;
 	}
 	if (str[i] == '*')
 	{
-		strutt->precision = -2;
-		i++;
-	}
-/*	if (str[i] >= 0 && str[i] <= 9)
-	{
 		x = va_arg(ap, int);
 		strutt->precision = x;
+		i++;					//FORSE CI VUOLE UN RETURN DI i DIRETTO
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		x = (str[i] - 48) + (x * 10);
 		i++;
 	}
-*/	return (i);
+	strutt->precision = x;
+	return (i);
 }
 
 int		ft_typearg(t_strutt *strutt, const char *str, int i, va_list ap)
 {
 	(void)ap;
-//	(void)str;         //cspdiuxX%
+	(void)strutt;         //cspdiuxX%
 
 	if((str[i]) == 'c')
 		return (1);
