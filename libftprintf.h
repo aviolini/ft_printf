@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/03 15:44:16 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:16:51 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ CONTROLLARE SE IL TYPE ARG E DIVERSO DA QUELLI DA SUBJECT
 IL MALLOC FUORI DAL CICLO? ANCHE FT_INIT_STRUTT
 RETURN INCREMENTATO DEGLI ARGOMENTI
 TOGLIERE AP E ALTRI ARGOMENTI DOVE NON SERVONO
-
+WIDTH NUMERO FORSE > 0 INVECE CHE = 0
 */
