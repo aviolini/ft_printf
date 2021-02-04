@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:15:37 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/03 15:46:53 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:06:59 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,5 @@ char	ft_typearg(t_strutt *strutt, const char *str, int i, va_list ap)
 		return ('x');
 	if ((str[i]) == 'X')
 		return ('X');
-	return (NULL);
+	return (0);
 }

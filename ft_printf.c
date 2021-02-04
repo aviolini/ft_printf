@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/03 15:50:48 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:16:24 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,7 @@ int ft_printf(const char *str, ...)
 			if (str[i] == '%' && str[i + 1] != '%' && str[i - 1] != '%')
 			{
 				strutt = (t_strutt *)malloc(sizeof(t_strutt));
-				ft_init_strutt(strutt);
-				i = ft_typeflag(strutt, str, i + 1, ap);
-				i = ft_typewidth(strutt, str, i, ap);
-				i = ft_typeprecision(strutt,str, i,ap);
-				strutt->type = ft_typearg(strutt,str, i, ap);
+				i = ft_fill_strutt(strutt, str, i, ap);
 				i++;
 			}
 			else if (str[i] == '%' && str[i + 1] == '%')
