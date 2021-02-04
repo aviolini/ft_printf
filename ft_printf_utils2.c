@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:38 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/04 08:38:11 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/04 09:16:50 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void	ft_putstr(char *str)
 		i++;
 	write(1, str, i--);
 }
-
 int		ft_strlen(char *str)   //return con \0
 {
 	int i;

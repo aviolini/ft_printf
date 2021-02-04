@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:15:37 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/03 17:06:59 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/04 12:39:54 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ int		ft_typewidth(t_strutt *strutt, const char *str, int i, va_list ap)
 	{
 		x = va_arg(ap, int);
 		strutt->width = x;
-		i++;                 //FORSE CI VUOLE UN RETURN DI i DIRETTO
+		i++;
+		return (i);
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
@@ -82,21 +83,27 @@ int		ft_typeprecision(t_strutt *strutt, const char *str, int i, va_list ap)
 	{
 		x = va_arg(ap, int);
 		strutt->precision = x;
-		i++;					//FORSE CI VUOLE UN RETURN DI i DIRETTO
+		i++; //FORSE CI VUOLE UN RETURN DI i DIRETTO
+		return (i);
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	if (str[i] >= '0' && str[i] <= '9')
 	{
-		x = (str[i] - 48) + (x * 10);
-		i++;
+		while (str[i] >= '0' && str[i] <= '9')
+		{
+			x = (str[i] - 48) + (x * 10);
+			i++;
+		}
+		strutt->precision = x;
+		return (i);
 	}
-	strutt->precision = x;
+	strutt->precision = -1;
 	return (i);
 }
 
 char	ft_typearg(t_strutt *strutt, const char *str, int i, va_list ap)
 {
 	(void)ap;
-	(void)strutt;         //cspdiuxX%
+	(void)strutt;
 
 	if((str[i]) == 'c')
 		return ('c');
