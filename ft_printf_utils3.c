@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/04 18:35:28 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/04 19:53:09 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,21 @@ void	ft_space_str(int len, int width, int precision)
 	int y;
 
 	x = 0;
-	//	if (len > precision) ///////////////////// FARE PROVE
+	if (precision <= len)
 		y = width - precision;
+	if (precision > len)
+		y = width - len;
+	if (len == -1)
+		y = width-1;
 	while (x++ < y)
-		write(1, "8", 1);
+		write(1, " ", 1);
 }
 
 void	ft_putstr(char *str, int len, int width, int precision)
 {
-	int y;
 
-	y = 0;
-	if (width > precision)
+	if (precision <= len)
 		write(1, str, precision);
+	if (precision > len)
+		write(1, str, len);
 }

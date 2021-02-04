@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 17:12:12 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/04 18:35:11 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/04 19:51:59 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	ft_use_strutt(t_strutt *strutt, const char *str, int i, va_list ap)
 {
 	if (strutt->type == 'd')
 		ft_d(strutt, ap);
-//	if (strutt->type == 'c')
-//		ft_c(strutt, ap);
+	if (strutt->type == 'c')
+		ft_c(strutt, ap);
 	if (strutt->type == 's')
 		ft_s(strutt, ap);
 /*	if (strutt->type == 'x')
@@ -84,11 +84,31 @@ void	ft_s(t_strutt *strutt, va_list ap)
 		ft_putstr(str, len, strutt->width, strutt->precision);
 		return ;
 	}
-/*	if (strutt->flag_minus == 1)
+	if (strutt->flag_minus == 1)
 	{
 		ft_putstr(str, len, strutt->width, strutt->precision);
 		ft_space_str(len, strutt->width, strutt->precision);
 		return ;
 	}
-*/
+
+}
+
+void	ft_c(t_strutt *strutt, va_list ap)
+{
+	char c;
+	int len;
+
+	len = -1;
+	c = va_arg(ap, int);
+	if (strutt->flag_minus == 0)
+	{
+		ft_space_str(len, strutt->width, strutt->precision);
+		write(1, &c,1);
+	}
+	if (strutt->flag_minus == 1)
+	{
+		write(1, &c, 1);
+		ft_space_str(len, strutt->width, strutt->precision);
+	}
+
 }
