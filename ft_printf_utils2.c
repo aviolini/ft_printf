@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:38 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/04 09:16:50 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/04 18:16:58 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_putnbr(int n)
 	sign = 1;
 	if (n == -2147483648)
 	{
-		ft_putstr("-2147483648");
+		ft_putmax("-2147483648");
 		return ;
 	}
 	if (n < 0)
@@ -79,7 +79,7 @@ void	ft_putnbr(int n)
 	ft_putnbr(n / 10);
 	ft_putnbr(n % 10);
 }
-void	ft_putstr(char *str)
+void	ft_putmax(char *str)
 {
 	size_t i;
 

@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/04 09:33:06 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/04 18:23:41 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,21 @@ int			ft_typewidth(t_strutt *strutt, const char *str,
 int			ft_fill_strutt(t_strutt *strutt, const char *str,
 	int i, va_list ap);
 void		ft_putnbr(int n);
-void		ft_putstr(char *str);
+void		ft_putmax(char *str);
 int			ft_check_num_arg(va_list ap, int n);
 void		ft_init_strutt(t_strutt *strutt);
 void		ft_printstrutt(t_strutt *strutt);
 void		ft_use_strutt(t_strutt *strutt, const char *str,
 	int i, va_list ap);
-void		ft_d(t_strutt *strutt, const char *str, int i, va_list ap);
-void		ft_c(t_strutt *strutt, const char *str, int i, va_list ap);
-void		ft_s(t_strutt *strutt, const char *str, int i, va_list ap);
-void		ft_x(t_strutt *strutt, const char *str, int i, va_list ap);
-void		ft_p(t_strutt *strutt, const char *str, int i, va_list ap);
+void		ft_d(t_strutt *strutt, va_list ap);
+void		ft_c(t_strutt *strutt, va_list ap);
+void		ft_s(t_strutt *strutt, va_list ap);
+void		ft_x(t_strutt *strutt, va_list ap);
+void		ft_p(t_strutt *strutt, va_list ap);
+void		ft_space(int len, int width, int precision);
+void		ft_zero(int len, int width, int precision);
+void		ft_space_str(int len, int width, int precision);
+void		ft_putstr(char *str, int len, int width, int precision);
 #endif
 
 /*
@@ -67,4 +71,6 @@ RETURN INCREMENTATO DEGLI ARGOMENTI
 TOGLIERE AP E ALTRI ARGOMENTI DOVE NON SERVONO
 WIDTH NUMERO FORSE > 0 INVECE CHE = 0
 FREE MALLOC ITOA, CASO LIMITE ITOA
+NON FUNZIONA CON UN PERCENTUALE APPENA FINTIO IL TYPE ARG PRECEDENTE ES: ft_printf("my   - %07.7d%*.*d\n",56789,7,7,56789);
+se e' = u
 */

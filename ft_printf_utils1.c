@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 17:12:12 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/04 12:51:18 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/04 18:35:11 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,70 @@ int		ft_fill_strutt(t_strutt *strutt, const char *str, int i, va_list ap)
 void	ft_use_strutt(t_strutt *strutt, const char *str, int i, va_list ap)
 {
 	if (strutt->type == 'd')
-		ft_d(strutt, str, i, ap);
-/*	if (strutt->type == 'c')
-		ft_c(strutt, str, i, ap);
+		ft_d(strutt, ap);
+//	if (strutt->type == 'c')
+//		ft_c(strutt, ap);
 	if (strutt->type == 's')
-		ft_s(strutt, str, i, ap);
-	if (strutt->type == 'x')
-		ft_x(strutt, str, i, ap);
+		ft_s(strutt, ap);
+/*	if (strutt->type == 'x')
+		ft_x(strutt, ap);
 	if (strutt->type == 'p')
-		ft_p(strutt, str, i, ap);
+		ft_p(strutt, ap);
 */		//MANCA ft_X
 }
 
-void	ft_d(t_strutt *strutt, const char *str, int i, va_list ap)
+void	ft_d(t_strutt *strutt, va_list ap)
 {
 	int len;
 	int num;
-	int x;
-	int z;
-	int y;
 
-	y = 0;
-	z = 0;
 	num = va_arg(ap, int);
 	len = ft_size_number(num);
-	
+	if (strutt->precision <= len && strutt->width <= len)
+	{
+		ft_putnbr(num);
+		return ;
+	}
+	if (strutt->flag_minus == 0)
+	{
+		ft_space(len, strutt->width, strutt->precision);
+		ft_zero(len, strutt->width, strutt->precision);
+		ft_putnbr(num);
+	}
+	if (strutt->flag_minus == 1)
+	{
+		ft_zero(len, strutt->width, strutt->precision);
+		ft_putnbr(num);
+		ft_space(len, strutt->width, strutt->precision);
+	}
+}
+
+void	ft_s(t_strutt *strutt, va_list ap)
+{
+	int		i;
+	int		len;
+	char	*str;
+
+	i = 0;
+	str = va_arg(ap, char *);
+	len = ft_strlen(str);
+	if (strutt->width <= len &&
+		(strutt->precision >= len || strutt->precision == -1))
+	{
+		write(1 ,str, len);
+		return ;
+	}
+	if (strutt->flag_minus == 0)
+	{
+		ft_space_str(len, strutt->width, strutt->precision);
+		ft_putstr(str, len, strutt->width, strutt->precision);
+		return ;
+	}
+/*	if (strutt->flag_minus == 1)
+	{
+		ft_putstr(str, len, strutt->width, strutt->precision);
+		ft_space_str(len, strutt->width, strutt->precision);
+		return ;
+	}
+*/
 }
