@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/05 16:19:56 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/05 16:48:12 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int ft_printf(const char *str, ...)
 			i++;
 		}
 //	ft_printstrutt(strutt);
+//free(strutt);
 	va_end(ap);
 	return (ret);
 }
