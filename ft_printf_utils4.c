@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/05 14:35:38 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/05 15:05:27 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ void	ft_d(t_strutt *strutt, va_list ap)
 		sign = 1;
 	 	num = num * -1;
 		len = len - 1;
+		strutt->width = strutt->width - 1;
 	}
-
-
 	if (strutt->precision <= len && strutt->width <= len)
 	{
 		if(sign)

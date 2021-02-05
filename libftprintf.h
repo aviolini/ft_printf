@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/05 14:38:01 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/05 15:08:01 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void		ft_space_str(int len, int width, int precision);
 void		ft_putstr(char *str, int len, int width, int precision);
 char		*ft_itoa_base(size_t n, int len, char *base);
 int			ft_size_number_uns_diffbase(size_t n, char *base);
-char		*ft_add_0x(char *str);
 #endif
 
 /*
@@ -87,4 +86,8 @@ CASO:(BISOGNA AUMENTARE LA PRECISION DI 1 IN FT_SPACE FLAG_MINUS 0)
 STANDARDIZZARE SPACE
 TYPE_D CON ITOA
 SI PUO USARE LÍTOA BASE ANCHE PER GLI INT VISTO CHE BISOGNA GESTIRLI SOLO POSTITIVI
+CASO LIMITE INT
+CASO :
+	ft_printf("m%10.15b\n",-2147483647);
+	printf("o%10.15b\n",-2147483647);
 */

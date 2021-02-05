@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:46:49 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/05 13:44:24 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/05 15:08:30 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,4 @@ char	*ft_itoa_base(size_t n, int len, char *base)
 		n = n / size_base;
 	}
 	return (str);
-}
-
-char	*ft_add_0x(char *str)
-{
-	int		i;
-	char	*newstr;
-
-	i = 0;
-	while (str[i])
-		i++;
-	newstr = (char *)malloc(sizeof(char) * (i + 2));
-	i = -1;
-	newstr[0] = '0';
-	newstr[1] = 'x';
-	while(str[i++])
-		newstr[i + 2] = str[i];
-	free(str);
-	return (newstr);
 }
