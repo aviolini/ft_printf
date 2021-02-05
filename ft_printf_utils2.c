@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:38 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/05 15:44:19 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/05 16:26:29 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ void	ft_putmax(char *str)
 int		ft_strlen(char *str)   //return con \0
 {
 	int i;
-
+	if (!str)
+		return (-1);
 	i = 0;
 	while (str[i])
 		i++;

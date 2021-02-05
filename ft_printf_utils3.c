@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/05 14:35:52 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/05 16:24:00 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_space(int len, int width, int precision)
 void	ft_zero(int len, int width, int precision)
 {
 	int x;
+	(void)width;
 
 	x = 0;
 	if (precision > len)
@@ -58,9 +59,9 @@ void	ft_space_str(int len, int width, int precision)
 		write(1, " ", 1);
 }
 
-void	ft_putstr(char *str, int len, int width, int precision)
+void	ft_putstr(char *str, int len,int width, int precision)
 {
-
+	(void)width;
 	if (precision <= len)
 		write(1, str, precision);
 	if (precision > len)

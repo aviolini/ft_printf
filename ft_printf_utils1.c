@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 17:12:12 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/05 11:56:53 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/05 16:12:26 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_fill_strutt(t_strutt *strutt, const char *str, int i, va_list ap)
 	return (i);
 }
 
-void	ft_use_strutt(t_strutt *strutt, const char *str, int i, va_list ap)
+void	ft_use_strutt(t_strutt *strutt, va_list ap)
 {
 	if (strutt->type == 'd')
 		ft_d(strutt, ap);

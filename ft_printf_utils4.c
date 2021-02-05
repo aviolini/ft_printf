@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/05 15:05:27 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/05 16:15:43 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,6 @@ void	ft_xXu(t_strutt *strutt, va_list ap, char *base)
 void	ft_p(t_strutt *strutt, va_list ap)
 {
 	char 				*str;
-	char				*str2;
 	unsigned long long	n;
 	int					len;
 
