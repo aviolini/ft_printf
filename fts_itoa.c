@@ -6,13 +6,13 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:46:49 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/06 12:08:10 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 00:37:24 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ft_size_number(int n)
+int		ft_size_nbr(int n)
 {
 	int i;
 
@@ -38,7 +38,7 @@ char	*ft_itoa(int n)
 	int i;
 	int len;
 
-	len = ft_size_number(n);
+	len = ft_size_nbr(n);
 	str = (char *)malloc(sizeof(char) * len);
 	i = -1;
 	if (n < 0)
@@ -55,7 +55,7 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-int		ft_size_number_uns_diffbase(size_t n, char *base)
+int		ft_size_nbr_uns_diffbase(size_t n, char *base)
 {
 	int i;
 	int x;

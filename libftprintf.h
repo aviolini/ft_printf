@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/05 16:22:36 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 00:37:46 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			ft_printf(const char *str, ...);
 int			ft_strlen(char *str);
 int			ft_numarg(char *str);
 char		*ft_itoa(int n);
-int 		ft_size_number(int n);
+int 		ft_size_nbr(int n);
 int			ft_typeflag(t_strutt *strutt, const char *str,
 	int i, va_list ap);
 char		ft_typearg(t_strutt *strutt, const char *str,
@@ -53,18 +53,20 @@ void		ft_putmax(char *str);
 int			ft_check_num_arg(va_list ap, int n);
 void		ft_init_strutt(t_strutt *strutt);
 void		ft_printstrutt(t_strutt *strutt);
-void		ft_use_strutt(t_strutt *strutt, va_list ap);
+void		ft_use_strutt(t_strutt *strutt, const char *str, int i, va_list ap);
 void		ft_d(t_strutt *strutt, va_list ap);
 void		ft_c(t_strutt *strutt, va_list ap);
 void		ft_s(t_strutt *strutt, va_list ap);
 void		ft_xXu(t_strutt *strutt, va_list ap, char *base);
 void		ft_p(t_strutt *strutt, va_list ap);
-void		ft_space(int len, int width, int precision);
-void		ft_zero(int len, int width, int precision);
-void		ft_space_str(int len, int width, int precision);
-void		ft_putstr(char *str, int len, int width, int precision);
+void		ft_perc(t_strutt *strutt, va_list ap);
+void		ft_not_type(t_strutt *strutt,const char *str, int i, va_list ap);
+void		ft_space_nbr(int len, t_strutt *strutt);
+void		ft_zero_nbr(int len, t_strutt *strutt);
+void		ft_space_str(int len, t_strutt *strutt);
+void		ft_putstr(char *str, int len, t_strutt *strutt);
 char		*ft_itoa_base(size_t n, int len, char *base);
-int			ft_size_number_uns_diffbase(size_t n, char *base);
+int			ft_size_nbr_uns_diffbase(size_t n, char *base);
 #endif
 
 /*

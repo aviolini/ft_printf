@@ -6,75 +6,62 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/06 12:08:16 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 00:41:05 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_space(int len, int width, int precision)
+void	ft_space_nbr(int len, t_strutt *strutt)
 {
 	int x;
 	int y;
 
 	x = 0;
 	y = 0;
-	if (precision == -1) //PER BYPASSARE IL -1
-		precision++;
-	if (width > precision && width > len)
+	if (strutt->precision == -1) //PER BYPASSARE IL -1
+		strutt->precision++;
+	if (strutt->width > strutt->precision && strutt->width > len)
 	{
-		if (precision > len)
-			y = width - precision;
-		if (precision <= len)
-			y = width - len;
+		if (strutt->precision > len)
+			y = strutt->width - strutt->precision;
+		if (strutt->precision <= len)
+			y = strutt->width - len;
 	}
 	while (x++ < y)
 		write(1, " ", 1);
 }
 
-void	ft_zero(int len, int width, int precision)
+void	ft_zero_nbr(int len, t_strutt *strutt)
 {
 	int x;
-	(void)width;
 
 	x = 0;
-	if (precision > len)
-		while (x++ < precision - len)
+	if (strutt->precision > len)
+		while (x++ < strutt->precision - len)
 			write(1, "0", 1);
 }
 
-void	ft_space_str(int len, int width, int precision)
+void	ft_space_str(int len, t_strutt *strutt)
 {
 	int x;
 	int y;
 
 	x = 0;
-	if (precision <= len)
-		y = width - precision;
-	if (precision > len)
-		y = width - len;
+	if (strutt->precision <= len)
+		y = strutt->width - strutt->precision;
+	if (strutt->precision > len || strutt->precision == -1)
+		y = strutt->width - len;
 	if (len == -1)
-		y = width-1;
+		y = strutt->width - 1;
 	while (x++ < y)
 		write(1, " ", 1);
 }
 
-void	ft_putstr(char *str, int len,int width, int precision)
+void	ft_putstr(char *str, int len, t_strutt *strutt)
 {
-	(void)width;
-	if (precision <= len)
-		write(1, str, precision);
-	if (precision > len)
+	if (strutt->precision <= len)
+		write(1, str, strutt->precision);
+	if (strutt->precision > len || strutt->precision == -1)
 		write(1, str, len);
-}
-
-int		ft_strlen(char *str)   //return con \0
-{
-	int i;
-	if (!str)
-		return (-1);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
 }

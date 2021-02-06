@@ -6,11 +6,22 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:38 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/06 12:08:23 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 00:41:00 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+int		ft_strlen(char *str)   //return con \0
+{
+	int i;
+	if (!str)
+		return (-1);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
 
 void	ft_putnbr(int n)
 {

@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/06 12:08:21 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/06 23:47:37 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int ft_printf(const char *str, ...)
 			{
 				strutt = (t_strutt *)malloc(sizeof(t_strutt));
 				i = ft_fill_strutt(strutt, str, i, ap);
-				ft_use_strutt(strutt, ap);
+				ft_use_strutt(strutt, str, i, ap);
 				//i++;
 			}
 			else
@@ -68,7 +68,7 @@ void	ft_init_strutt(t_strutt *strutt)
 	strutt->type = 0;
 }
 
-void	ft_use_strutt(t_strutt *strutt, va_list ap)
+void	ft_use_strutt(t_strutt *strutt,const char *str, int i, va_list ap)
 {
 	if (strutt->type == 'd')
 		ft_d(strutt, ap);
@@ -84,7 +84,10 @@ void	ft_use_strutt(t_strutt *strutt, va_list ap)
 		ft_xXu(strutt, ap , BASE10);
 	if (strutt->type == 'p')
 		ft_p(strutt, ap);
-	//if (strutt->type == 0)
+	if (strutt->type == '%')
+		ft_perc(strutt, ap);
+	if (strutt->type == 0)
+		ft_not_type(strutt, str, i, ap);
 
 }
 
