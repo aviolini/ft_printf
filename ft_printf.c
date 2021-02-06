@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/05 16:48:12 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/06 12:08:21 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,53 @@ int ft_printf(const char *str, ...)
 	va_end(ap);
 	return (ret);
 }
+
+int		ft_fill_strutt(t_strutt *strutt, const char *str, int i, va_list ap)
+{
+	ft_init_strutt(strutt);
+	i = ft_typeflag(strutt, str, i + 1, ap);
+	i = ft_typewidth(strutt, str, i, ap);
+	i = ft_typeprecision(strutt, str, i,ap);
+	strutt->type = ft_typearg(strutt, str, i, ap);
+	return (i);
+}
+
+void	ft_init_strutt(t_strutt *strutt)
+{
+	strutt->flag_minus = 0;
+	strutt->flag_zero = 0;
+	strutt->width = 0;
+	strutt->dot = 0;
+	strutt->precision = -1;   // initially set as -1 instead of 0
+	strutt->flag_pre_va = 0; // if precision is a variable argument
+	strutt->num_m = 0;	     // is number negative?
+	strutt->type = 0;
+}
+
+void	ft_use_strutt(t_strutt *strutt, va_list ap)
+{
+	if (strutt->type == 'd')
+		ft_d(strutt, ap);
+	if (strutt->type == 'c')
+		ft_c(strutt, ap);
+	if (strutt->type == 's')
+		ft_s(strutt, ap);
+	if (strutt->type == 'x')
+		ft_xXu(strutt, ap, BASE16);
+	if (strutt->type == 'X')
+		ft_xXu(strutt, ap, BASE16X);
+	if (strutt->type == 'u')
+		ft_xXu(strutt, ap , BASE10);
+	if (strutt->type == 'p')
+		ft_p(strutt, ap);
+	//if (strutt->type == 0)
+
+}
+
+
+
+
+
 
 void	ft_printstrutt(t_strutt	*strutt)
 {
