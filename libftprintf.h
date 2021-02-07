@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 01:57:42 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 02:00:37 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,5 @@ TOGLIERE VARI RETURN IN FT_MANAGE_TYPE?
 TOGLIERE EVENUTALI (VOID)VARIABILE CHE NON SERVONO?
 TOGLIERE FUNZIONI IN .h CHE NON SERVONO
 I FREE NELLE FUNZIONI MANAGE_TYPE
+TOGLIERE IL PRINT STRUTT
 */
