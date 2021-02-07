@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:38 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 01:45:59 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 13:26:00 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_putnbr(int n, t_strutt *strutt)
 
 	if (n == -2147483648)
 	{
-		ft_putmax("2147483648");
+		ft_putmax("2147483648", strutt);
 		return ;
 	}
 	if (n < 0)
@@ -52,7 +52,7 @@ void	ft_putnbr(int n, t_strutt *strutt)
 	ft_putnbr(n / 10, strutt);
 	ft_putnbr(n % 10, strutt);
 }
-void	ft_putmax(char *str)
+void	ft_putmax(char *str, t_strutt *strutt)
 {
 	size_t i;
 
@@ -61,5 +61,6 @@ void	ft_putmax(char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	write(1, str, i--);
+	ft_putchar(str, i--, strutt);
+	//write(1, str, i--);
 }
