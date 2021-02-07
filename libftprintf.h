@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 01:20:54 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 01:57:42 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int			ft_typewidth(t_strutt *strutt, const char *str,
 	int i, va_list ap);
 int			ft_fill_strutt(t_strutt *strutt, const char *str,
 	int i, va_list ap);
-void		ft_putnbr(int n);
+void		ft_putnbr(int n, t_strutt *strutt);
 void		ft_putmax(char *str);
 int			ft_check_num_arg(va_list ap, int n);
 void		ft_init_strutt(t_strutt *strutt);
@@ -81,4 +81,5 @@ STRLEN CON \0?
 TOGLIERE VARI RETURN IN FT_MANAGE_TYPE?
 TOGLIERE EVENUTALI (VOID)VARIABILE CHE NON SERVONO?
 TOGLIERE FUNZIONI IN .h CHE NON SERVONO
+I FREE NELLE FUNZIONI MANAGE_TYPE
 */

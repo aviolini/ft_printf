@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:38 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 00:49:12 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 01:45:59 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putchar(char *str, int size, t_strutt *strutt)
 	write(1, str, size);
 	strutt->total_chars = strutt->total_chars + size;
 }
-int		ft_strlen(char *str)   //return con \0
+int		ft_strlen(char *str)
 {
 	int i;
 	if (!str)
@@ -27,7 +27,7 @@ int		ft_strlen(char *str)   //return con \0
 		i++;
 	return (i);
 }
-void	ft_putnbr(int n)
+void	ft_putnbr(int n, t_strutt *strutt)
 {
 	char	c;
 
@@ -39,16 +39,18 @@ void	ft_putnbr(int n)
 	if (n < 0)
 	{
 		n = n * -1;
-		write(1, "-", 1);
+		ft_putchar("-", 1, strutt);
+		//write(1, "-", 1);
 	}
 	if (n < 10)
 	{
 		c = n + '0';
-		write(1, &c, 1);
+		ft_putchar(&c, 1, strutt);
+		//write(1, &c, 1);
 		return ;
 	}
-	ft_putnbr(n / 10);
-	ft_putnbr(n % 10);
+	ft_putnbr(n / 10, strutt);
+	ft_putnbr(n % 10, strutt);
 }
 void	ft_putmax(char *str)
 {

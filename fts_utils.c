@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 00:55:27 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 01:41:25 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	ft_space_nbr(int len, t_strutt *strutt)
 			y = strutt->width - len;
 	}
 	while (x++ < y)
-		write(1, " ", 1);
+		ft_putchar(" ", 1, strutt);
+		//write(1, " ", 1);
 }
 
 void	ft_zero_nbr(int len, t_strutt *strutt)
@@ -39,7 +40,8 @@ void	ft_zero_nbr(int len, t_strutt *strutt)
 	x = 0;
 	if (strutt->precision > len)
 		while (x++ < strutt->precision - len)
-			write(1, "0", 1);
+			ft_putchar("0", 1, strutt);
+			//write(1, "0", 1);
 }
 
 void	ft_space_str(int len, t_strutt *strutt)

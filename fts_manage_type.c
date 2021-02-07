@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 00:51:50 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 01:53:35 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,27 @@ void	ft_d(t_strutt *strutt, va_list ap)
 	if (strutt->precision <= len && strutt->width <= len)
 	{
 		if(sign)
-			write(1, "-", 1);
-		ft_putnbr(num);
+			ft_putchar("-", 1, strutt);
+			//write(1, "-", 1);
+		ft_putnbr(num, strutt);
 		return ;
 	}
 	if (strutt->flag_minus == 0)
 	{
 		ft_space_nbr(len, strutt);
 		if(sign)
-			write(1, "-", 1);
+			ft_putchar("-", 1, strutt);
+			//write(1, "-", 1);
 		ft_zero_nbr(len, strutt);
-		ft_putnbr(num);
+		ft_putnbr(num, strutt);
 	}
 	if (strutt->flag_minus == 1)
 	{
 		if(sign)
-			write(1, "-", 1);
+			ft_putchar("-", 1, strutt);
+			//write(1, "-", 1);
 		ft_zero_nbr(len, strutt);
-		ft_putnbr(num);
+		ft_putnbr(num, strutt);
 		ft_space_nbr(len, strutt);
 	}
 }
@@ -92,11 +95,13 @@ void	ft_c(t_strutt *strutt, va_list ap)
 	if (strutt->flag_minus == 0)
 	{
 		ft_space_str(len, strutt);
-		write(1, &c,1);
+		ft_putchar(&c, 1, strutt);
+		//write(1, &c,1);
 	}
 	if (strutt->flag_minus == 1)
 	{
-		write(1, &c, 1);
+		ft_putchar(&c, 1, strutt);
+		//write(1, &c, 1);
 		ft_space_str(len, strutt);
 	}
 
@@ -113,19 +118,22 @@ void	ft_xXu(t_strutt *strutt, va_list ap, char *base)
 	str = ft_itoa_base(n, len, base);
 	if (strutt->precision <= len && strutt->width <= len)
 	{
-		write(1, str, len);
+		//write(1, str, len);
+		ft_putchar(str, len, strutt);
 		return ;
 	}
 	if (strutt->flag_minus == 0)
 	{
 		ft_space_nbr(len, strutt);
 		ft_zero_nbr(len, strutt);
-		write(1, str, len);
+		//write(1, str, len);
+		ft_putchar(str, len, strutt);
 	}
 	if (strutt->flag_minus == 1)
 	{
 		ft_zero_nbr(len, strutt);
-		write(1, str, len);
+		//write(1, str, len);
+		ft_putchar(str, len, strutt);
 		ft_space_nbr(len, strutt);
 	}
 	free(str);
@@ -142,23 +150,29 @@ void	ft_p(t_strutt *strutt, va_list ap)
 	str = ft_itoa_base(n, len, BASE16);
 	if (strutt->precision <= len && strutt->width <= len)
 	{
-		write(1, "0x", 2);
-		write(1, str, len);
+		ft_putchar("0x", 2, strutt);
+		//write(1, "0x", 2);
+		ft_putchar(str, len, strutt);
+		//write(1, str, len);
 		return ;
 	}
 	strutt->width = strutt->width - 2;
 	if (strutt->flag_minus == 0)
 	{
 		ft_space_nbr(len, strutt);
-		write(1, "0x", 2);
+		ft_putchar("0x", 2, strutt);
+		//write(1, "0x", 2);
 		ft_zero_nbr(len, strutt);
-		write(1, str, len);
+		ft_putchar(str, len, strutt);
+		//write(1, str, len);
 	}
 	if (strutt->flag_minus == 1)
 	{
-		write(1, "0x", 2);
+		ft_putchar("0x", 2, strutt);
+		//write(1, "0x", 2);
 		ft_zero_nbr(len, strutt);
-		write(1, str, len);
+		ft_putchar(str, len, strutt);
+		//write(1, str, len);
 		ft_space_nbr(len, strutt);
 	}
 }
