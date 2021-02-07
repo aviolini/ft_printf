@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 23:15:14 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 12:00:45 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 01:55:20 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_perc(t_strutt *strutt, va_list ap)
 {
+	(void)strutt;
 	(void)ap;
 	ft_putchar("%", 1, strutt);
-//	strutt->prev_was_perc = 1;
 	//write (1, "%", 1);
 }
 

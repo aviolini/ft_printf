@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 12:00:46 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 01:13:06 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,41 +23,24 @@ int ft_printf(const char *str, ...)
 	ret = 0;
 	va_start(ap,str);
 	strutt = (t_strutt *)malloc(sizeof(t_strutt));
-	//strutt->prev_was_perc = 0;
-
 	while (str[i])
 		{
-			if (str[i] == '%' && str[i + 1] == '%')// &&
-		//	strutt->prev_was_perc == 0)
-			{
-				//strutt->prev_was_perc = 0;
-				write(1,&str[i],1);
-				ret++;
-				printf("2\n");
+			if (str[i] == '%' && str[i + 1] == '%')
 				i = i + 1;
-			}
-			else if (str[i] == '%' && str[i + 1] != '%')// && str[i - 1] != '%')
+			if (str[i] == '%' && str[i + 1] != '%' && str[i - 1] != '%')
 			{
 				//strutt = (t_strutt *)malloc(sizeof(t_strutt));
-			//	if (strutt->prev_was_perc)
-				//	strutt->prev_was_perc = 0;
 				i = ft_fill_strutt(strutt, str, i, ap);
 				ft_use_strutt(strutt, str, i, ap);
 				ret = ret + strutt->total_chars;
 				//i++;
-				printf("1\n");
 			}
-
 			else
 			{
-			//	if (strutt->prev_was_perc)
-				//	strutt->prev_was_perc = 0;
 				write(1,&str[i],1);
-				printf("3\n");
-
 				ret++;
 			}
-			//ft_printstrutt(strutt);
+
 			i++;
 		}
 	//ft_printstrutt(strutt);
@@ -124,7 +107,6 @@ void	ft_printstrutt(t_strutt	*strutt)
 	printf("strutt->dot : %i\n", strutt->dot);
 	printf("strutt->precision : %i\n", strutt->precision);
 	printf("strutt->total_chars : %i\n", strutt->total_chars);
-	printf("strutt->prev_was_perc : %i\n", strutt->prev_was_perc);
 	printf("type : %c\n", strutt->type);
 	printf("------------------------\n");
 }
