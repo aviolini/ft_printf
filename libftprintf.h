@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 00:48:32 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 01:20:54 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,25 +70,15 @@ void		ft_putchar(char *str, int size, t_strutt *strutt);
 #endif
 
 /*
-CONTROLLARE CHAR * E CONST CHAR *
-CONTROLLARE SE IL TYPE ARG E DIVERSO DA QUELLI DA SUBJECT
-IL MALLOC FUORI DAL CICLO? ANCHE FT_INIT_STRUTT
-RETURN INCREMENTATO DEGLI ARGOMENTI
-TOGLIERE AP E ALTRI ARGOMENTI DOVE NON SERVONO
 WIDTH NUMERO FORSE > 0 INVECE CHE = 0
 FREE MALLOC ITOA, CASO LIMITE ITOA
-NON FUNZIONA CON UN PERCENTUALE APPENA FINTIO IL TYPE ARG PRECEDENTE ES: ft_printf("my   - %07.7d%*.*d\n",56789,7,7,56789);
-se e' = u
 SU FT_SPACE E ALTRE FARE TEST E OTTIMIZZARE LE CONDIZIONI
-FUNZIONE TYPEARG INUTILE?
-CASO:(BISOGNA AUMENTARE LA PRECISION DI 1 IN FT_SPACE FLAG_MINUS 0)
-	ft_printf("m%10.5d\n",-555);
-	printf("o%10.5d\n",-555);
 STANDARDIZZARE SPACE
 TYPE_D CON ITOA
-SI PUO USARE LÍTOA BASE ANCHE PER GLI INT VISTO CHE BISOGNA GESTIRLI SOLO POSTITIVI
+SI PUO USARE L'ÍTOA BASE ANCHE PER GLI INT VISTO CHE BISOGNA GESTIRLI SOLO POSTITIVI
 CASO LIMITE INT
-CASO :
-	ft_printf("m%10.15b\n",-2147483647);
-	printf("o%10.15b\n",-2147483647);
+STRLEN CON \0?
+TOGLIERE VARI RETURN IN FT_MANAGE_TYPE?
+TOGLIERE EVENUTALI (VOID)VARIABILE CHE NON SERVONO?
+TOGLIERE FUNZIONI IN .h CHE NON SERVONO
 */
