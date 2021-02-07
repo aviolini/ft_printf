@@ -6,12 +6,17 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:38 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 00:41:00 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 00:49:12 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
+void	ft_putchar(char *str, int size, t_strutt *strutt)
+{
+	write(1, str, size);
+	strutt->total_chars = strutt->total_chars + size;
+}
 int		ft_strlen(char *str)   //return con \0
 {
 	int i;
@@ -22,7 +27,6 @@ int		ft_strlen(char *str)   //return con \0
 		i++;
 	return (i);
 }
-
 void	ft_putnbr(int n)
 {
 	char	c;

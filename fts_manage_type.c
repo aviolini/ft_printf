@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 00:40:14 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 00:51:50 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void	ft_s(t_strutt *strutt, va_list ap)
 	if (strutt->width <= len &&
 		(strutt->precision >= len || strutt->precision == -1))
 	{
-		write(1 , str, len);
+		//write(1 , str, len);
+		ft_putchar(str, len, strutt);
 		return ;
 	}
 	if (strutt->flag_minus == 0)

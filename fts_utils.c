@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 00:41:05 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 00:55:27 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,16 @@ void	ft_space_str(int len, t_strutt *strutt)
 	if (len == -1)
 		y = strutt->width - 1;
 	while (x++ < y)
-		write(1, " ", 1);
+		ft_putchar(" ", 1, strutt);
+		//write(1, " ", 1);
 }
 
 void	ft_putstr(char *str, int len, t_strutt *strutt)
 {
 	if (strutt->precision <= len)
-		write(1, str, strutt->precision);
+		ft_putchar(str, strutt->precision, strutt);
+		//write(1, str, strutt->precision);
 	if (strutt->precision > len || strutt->precision == -1)
-		write(1, str, len);
+		ft_putchar(str, len, strutt);
+		//write(1, str, len);
 }

@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/06 23:47:37 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 01:00:42 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int ft_printf(const char *str, ...)
 				strutt = (t_strutt *)malloc(sizeof(t_strutt));
 				i = ft_fill_strutt(strutt, str, i, ap);
 				ft_use_strutt(strutt, str, i, ap);
+				ret = ret + strutt->total_chars;
 				//i++;
 			}
 			else
@@ -38,9 +39,10 @@ int ft_printf(const char *str, ...)
 				write(1,&str[i],1);
 				ret++;
 			}
+
 			i++;
 		}
-//	ft_printstrutt(strutt);
+	//ft_printstrutt(strutt);
 //free(strutt);
 	va_end(ap);
 	return (ret);
@@ -62,9 +64,8 @@ void	ft_init_strutt(t_strutt *strutt)
 	strutt->flag_zero = 0;
 	strutt->width = 0;
 	strutt->dot = 0;
-	strutt->precision = -1;   // initially set as -1 instead of 0
-	strutt->flag_pre_va = 0; // if precision is a variable argument
-	strutt->num_m = 0;	     // is number negative?
+	strutt->precision = -1;
+	strutt->total_chars = 0;
 	strutt->type = 0;
 }
 
@@ -104,8 +105,7 @@ void	ft_printstrutt(t_strutt	*strutt)
 	printf("strutt->width : %i\n", strutt->width);
 	printf("strutt->dot : %i\n", strutt->dot);
 	printf("strutt->precision : %i\n", strutt->precision);
-	printf("strutt->flag_pre_va : %i\n", strutt->flag_pre_va);
-	printf("strutt->num_m : %i\n", strutt->num_m);
+	printf("strutt->total_chars : %i\n", strutt->total_chars);
 	printf("type : %c\n", strutt->type);
 	printf("------------------------\n");
 }

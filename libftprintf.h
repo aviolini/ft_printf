@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 00:37:46 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 00:48:32 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ typedef struct s_option
 	int 	width;
 	int 	dot;
 	int 	precision;
-	int 	flag_pre_va;
-	int 	num_m;
+	int 	total_chars;
 	char 	type;
 } 			t_strutt;
 
@@ -67,6 +66,7 @@ void		ft_space_str(int len, t_strutt *strutt);
 void		ft_putstr(char *str, int len, t_strutt *strutt);
 char		*ft_itoa_base(size_t n, int len, char *base);
 int			ft_size_nbr_uns_diffbase(size_t n, char *base);
+void		ft_putchar(char *str, int size, t_strutt *strutt);
 #endif
 
 /*
