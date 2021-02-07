@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 02:00:37 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/07 02:16:16 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,8 @@ TOGLIERE EVENUTALI (VOID)VARIABILE CHE NON SERVONO?
 TOGLIERE FUNZIONI IN .h CHE NON SERVONO
 I FREE NELLE FUNZIONI MANAGE_TYPE
 TOGLIERE IL PRINT STRUTT
+CASO:
+ret = printf("or - %10.7%%d\n",str1);
+ret2 = ft_printf("my - %-10.7%%d\n",str1);
+
 */
