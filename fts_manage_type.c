@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 02:11:37 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/08 17:30:43 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,48 @@ void	ft_d(t_strutt *strutt, va_list ap)
 	int len;
 	int num;
 	int sign;
+	char *str;
+	//int num_is_zero;
 
 	sign = 0;
+	//num_is_zero = 0;
 	num = va_arg(ap, int);
-	len = ft_size_nbr(num);
+	if (num == 0 && strutt->dot == 1 && (strutt->precision == 0 || strutt->precision == -1))
+	{
+		ft_num_is_zero(strutt, ap);
+		return ;
+	}
 	if (num < 0)
 	{
 		sign = 1;
-	 	num = num * -1;
-		len = len - 1;
+		num = num * -1;
 		strutt->width = strutt->width - 1;
 	}
+	str = ft_itoa(num);
+	//printf("str %s:")
+	len = ft_strlen(str);
 	if (strutt->precision <= len && strutt->width <= len)
 	{
 		if(sign)
 			ft_putchar("-", 1, strutt);
-			//write(1, "-", 1);
-		ft_putnbr(num, strutt);
+			ft_putchar(str, len, strutt);
 		return ;
 	}
 	if (strutt->flag_minus == 0)
 	{
-		ft_space_nbr(len, strutt);
+		//if (!strutt->num_is_zero)
+			ft_space_nbr(len, strutt);
 		if(sign)
 			ft_putchar("-", 1, strutt);
-			//write(1, "-", 1);
-		ft_zero_nbr(len, strutt);
-		ft_putnbr(num, strutt);
+			ft_zero_nbr(len, strutt);
+				ft_putchar(str, len, strutt);
 	}
 	if (strutt->flag_minus == 1)
 	{
 		if(sign)
 			ft_putchar("-", 1, strutt);
-			//write(1, "-", 1);
 		ft_zero_nbr(len, strutt);
-		ft_putnbr(num, strutt);
+		ft_putchar(str, len, strutt);
 		ft_space_nbr(len, strutt);
 	}
 }
@@ -62,11 +69,16 @@ void	ft_s(t_strutt *strutt, va_list ap)
 	char	*str;
 
 	str = va_arg(ap, char *);
-	len = ft_strlen(str);
+	if (str == NULL)
+	{
+		len = 7;
+		str = "(null)\0";
+	}
+	else
+		len = ft_strlen(str);
 	if (strutt->width <= len &&
 		(strutt->precision >= len || strutt->precision == -1))
 	{
-		//write(1 , str, len);
 		ft_putchar(str, len, strutt);
 		return ;
 	}

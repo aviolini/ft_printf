@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 13:25:39 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/08 16:40:50 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_option
 	int 	dot;
 	int 	precision;
 	int 	total_chars;
+	int		num_is_zero;
 	int		prev_was_perc;
 	char 	type;
 } 			t_strutt;
@@ -63,11 +64,14 @@ void		ft_perc(t_strutt *strutt, va_list ap);
 void		ft_not_type(t_strutt *strutt,const char *str, int i, va_list ap);
 void		ft_space_nbr(int len, t_strutt *strutt);
 void		ft_zero_nbr(int len, t_strutt *strutt);
+void		ft_putnbr_str(char *str, t_strutt *strutt);
 void		ft_space_str(int len, t_strutt *strutt);
 void		ft_putstr(char *str, int len, t_strutt *strutt);
 char		*ft_itoa_base(size_t n, int len, char *base);
+char		*ft_strdup(char *str);
 int			ft_size_nbr_uns_diffbase(size_t n, char *base);
 void		ft_putchar(char *str, int size, t_strutt *strutt);
+void		ft_num_is_zero(t_strutt *strutt, va_list ap);
 #endif
 
 /*

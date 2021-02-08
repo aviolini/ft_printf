@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/07 12:59:45 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/08 15:17:30 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int ft_printf(const char *str, ...)
 				ft_use_strutt(strutt, str, i, ap);
 				ret = ret + strutt->total_chars;
 				//i++;
+					//ft_printstrutt(strutt);
 			}
 			else
 			{
@@ -52,6 +53,7 @@ int ft_printf(const char *str, ...)
 			}
 
 			i++;
+
 		}
 	//ft_printstrutt(strutt);
 	free(strutt);
@@ -77,6 +79,7 @@ void	ft_init_strutt(t_strutt *strutt)
 	strutt->dot = 0;
 	strutt->precision = -1;
 	strutt->total_chars = 0;
+	strutt->num_is_zero = 0;
 	strutt->type = 0;
 }
 

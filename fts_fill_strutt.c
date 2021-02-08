@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:15:37 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/06 23:36:32 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/08 11:58:24 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ int		ft_typewidth(t_strutt *strutt, const char *str, int i, va_list ap)
 	if (str[i] == '*')
 	{
 		x = va_arg(ap, int);
+		if (x < 0)
+		{
+			strutt->flag_minus = 1;
+			x = x * -1;
+		}
 		strutt->width = x;
 		i++;
 		return (i);
@@ -71,6 +76,8 @@ int		ft_typeprecision(t_strutt *strutt, const char *str, int i, va_list ap)
 	{
 		x = va_arg(ap, int);
 		strutt->precision = x;
+		if (x == -1)
+			strutt->precision = 1;
 		i++; //FORSE CI VUOLE UN RETURN DI i DIRETTO
 		return (i);
 	}
