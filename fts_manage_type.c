@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/08 17:30:43 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/08 18:31:41 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_d(t_strutt *strutt, va_list ap)
 	{
 		if(sign)
 			ft_putchar("-", 1, strutt);
-			ft_putchar(str, len, strutt);
+		ft_putchar(str, len, strutt);
 		return ;
 	}
 	if (strutt->flag_minus == 0)
@@ -50,8 +50,8 @@ void	ft_d(t_strutt *strutt, va_list ap)
 			ft_space_nbr(len, strutt);
 		if(sign)
 			ft_putchar("-", 1, strutt);
-			ft_zero_nbr(len, strutt);
-				ft_putchar(str, len, strutt);
+		ft_zero_nbr(len, strutt);
+		ft_putchar(str, len, strutt);
 	}
 	if (strutt->flag_minus == 1)
 	{

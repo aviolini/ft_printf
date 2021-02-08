@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 23:15:14 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/08 17:11:22 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/08 18:32:16 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	ft_not_type(t_strutt *strutt, const char *str, int i, va_list ap)
 
 void	ft_num_is_zero(t_strutt *strutt, va_list ap)
 {
-		int len;
-		char *str;
+//		int len;
+//		char *str;
 		(void)ap;
 		int x;
 
@@ -48,8 +48,8 @@ void	ft_num_is_zero(t_strutt *strutt, va_list ap)
 	x = 0;
 	//printstrutt(strutt);
 		strutt->num_is_zero = 1;
-		str = "0";
-		len = 1;
+//		str = "0";
+//		len = 1;
 		if (strutt->width && strutt->precision <= 0)
 			while (x++ < strutt->width)
 				ft_putchar(" ",1, strutt);

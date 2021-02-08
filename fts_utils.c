@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/08 17:37:44 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/08 18:32:54 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ void	ft_putnbr_str(char *str, t_strutt *strutt)
 {
 	(void)str;
 	(void)strutt;
-	int i;
+	//int i;
 
-	i = 0;
+//	i = 0;
 
 }
 
