@@ -6,35 +6,27 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/08 18:46:12 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/09 12:45:14 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_space_nbr(int len, t_strutt *strutt)
+void	ft_space_nbr(int y, t_strutt *strutt)
 {
-	int x;
-	int y;
+	int i;
 
-	x = 0;
-	y = 0;
-		if (strutt->width > len)
-			y = strutt->width - strutt->precision;
-		if (strutt->precision <= len)
-			y = strutt->width - len;
-
-		while (x++ < y)
-			ft_putchar(" ", 1, strutt);
+	i = 0;
+	while (i++ < y)
+		ft_putchar(" ", 1, strutt);
 }
 
-void	ft_zero_nbr(int len, t_strutt *strutt)
+void	ft_zero_nbr(int x, t_strutt *strutt)
 {
-	int x;
+	int i;
 
-	x = 0;
-	if (strutt->precision > len)
-		while (x++ < strutt->precision - len)
+	i = 0;
+		while (i++ < x)
 			ft_putchar("0", 1, strutt);
 
 }

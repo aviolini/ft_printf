@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/08 18:31:41 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/09 16:07:17 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,8 @@ void	ft_d(t_strutt *strutt, va_list ap)
 {
 	int len;
 	int num;
-	int sign;
 	char *str;
-	//int num_is_zero;
 
-	sign = 0;
-	//num_is_zero = 0;
 	num = va_arg(ap, int);
 	if (num == 0 && strutt->dot == 1 && (strutt->precision == 0 || strutt->precision == -1))
 	{
@@ -30,36 +26,50 @@ void	ft_d(t_strutt *strutt, va_list ap)
 	}
 	if (num < 0)
 	{
-		sign = 1;
 		num = num * -1;
 		strutt->width = strutt->width - 1;
+		strutt->num_is_neg = 1;
 	}
 	str = ft_itoa(num);
-	//printf("str %s:")
 	len = ft_strlen(str);
 	if (strutt->precision <= len && strutt->width <= len)
 	{
-		if(sign)
+		if(strutt->num_is_neg)
 			ft_putchar("-", 1, strutt);
 		ft_putchar(str, len, strutt);
 		return ;
 	}
 	if (strutt->flag_minus == 0)
 	{
-		//if (!strutt->num_is_zero)
-			ft_space_nbr(len, strutt);
-		if(sign)
+		if(strutt->flag_zero && strutt->width > len
+			&& (strutt->precision <= -1 || !strutt->dot))
+		{
+			if(strutt->num_is_neg)
+				ft_putchar("-", 1, strutt);
+			ft_zero_nbr(strutt->width - len, strutt);
+			ft_putchar(str,len,strutt);
+			return ;
+		}
+
+		if(strutt->width > len && strutt->precision <= len)
+			ft_space_nbr(strutt->width - len, strutt);
+		if(strutt->num_is_neg)
 			ft_putchar("-", 1, strutt);
-		ft_zero_nbr(len, strutt);
-		ft_putchar(str, len, strutt);
+		if(strutt->precision > len)
+			ft_zero_nbr(strutt->precision - len, strutt);
+		ft_putchar(str,len,strutt);
 	}
 	if (strutt->flag_minus == 1)
 	{
-		if(sign)
+		if(strutt->num_is_neg)
 			ft_putchar("-", 1, strutt);
-		ft_zero_nbr(len, strutt);
+		if (strutt->precision > len)
+			ft_zero_nbr(strutt->precision - len, strutt);
 		ft_putchar(str, len, strutt);
-		ft_space_nbr(len, strutt);
+		if(strutt->width > len && strutt->precision <= len)
+			ft_space_nbr(strutt->width - len, strutt);
+		if(strutt->width > strutt->precision && strutt->precision > len)
+			ft_space_nbr(strutt->width - strutt->precision, strutt);
 	}
 }
 
