@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/09 15:24:02 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/09 16:29:44 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_option
 	int		num_is_zero;
 	int		prev_was_perc;
 	int		num_is_neg;
+	int 	prec_is_arg;
 	char 	type;
 } 			t_strutt;
 

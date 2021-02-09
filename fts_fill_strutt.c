@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:15:37 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/09 15:59:16 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/09 17:19:08 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int		ft_typeprecision(t_strutt *strutt, const char *str, int i, va_list ap)
 	{
 		x = va_arg(ap, int);
 		strutt->precision = x;
+		if (x <= -1)
+			strutt->prec_is_arg = 1;
 		i++; //FORSE CI VUOLE UN RETURN DI i DIRETTO
 		return (i);
 	}
