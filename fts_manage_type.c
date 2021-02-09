@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/09 18:03:59 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/09 23:23:22 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,55 @@ void	ft_s(t_strutt *strutt, va_list ap)
 		ft_putchar(str, len, strutt);
 		return ;
 	}
+
 	if (strutt->flag_minus == 0)
 	{
-		ft_space_str(len, strutt);
-		ft_putstr(str, len, strutt);
-		return ;
+		if(strutt->width > len)
+		{
+			if(strutt->precision >= len || strutt->precision == -1)
+			{
+				ft_space_nbr(strutt->width - len, strutt);
+				ft_putchar(str, len, strutt);
+				return ;
+			}
+			if(strutt->precision < len && strutt->precision != 1)
+			{
+				ft_space_nbr(strutt->width - strutt->precision, strutt);
+				ft_putchar(str, strutt->precision, strutt);
+				return ;
+			}
+		}
+		if (strutt->width <= len && strutt->precision < len && strutt->precision != -1)
+			{
+				ft_space_nbr(strutt->width - strutt->precision, strutt);
+				ft_putchar(str, strutt->precision, strutt);
+				return ;
+			}
 	}
+
 	if (strutt->flag_minus == 1)
 	{
-		ft_putstr(str, len, strutt);
-		ft_space_str(len, strutt);
-		return ;
+		if(strutt->width > len)
+		{
+			if(strutt->precision >= len || strutt->precision == -1)
+			{
+				ft_putchar(str, len, strutt);
+				ft_space_nbr(strutt->width - len, strutt);
+				return ;
+			}
+			if(strutt->precision < len && strutt->precision != 1)
+			{
+				ft_putchar(str, strutt->precision, strutt);
+				ft_space_nbr(strutt->width - strutt->precision, strutt);
+				return ;
+			}
+		}
+		if (strutt->width <= len && strutt->precision < len && strutt->precision != -1)
+			{
+				ft_putchar(str, strutt->precision, strutt);
+				ft_space_nbr(strutt->width - strutt->precision, strutt);
+				return ;
+			}
 	}
 
 }
