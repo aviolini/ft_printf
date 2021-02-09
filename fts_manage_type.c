@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/09 17:37:52 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/09 18:03:59 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ void	ft_s(t_strutt *strutt, va_list ap)
 	char	*str;
 
 	str = va_arg(ap, char *);
-	if (str == NULL)
-	{
-		len = 7;
-		str = "(null)\0";
-	}
-	else
+//	if (str == NULL)
+//	{
+//		len = 7;
+//		str = "(null)\0";
+//	}
+//	else
 		len = ft_strlen(str);
 	if (strutt->width <= len &&
 		(strutt->precision >= len || strutt->precision == -1))
