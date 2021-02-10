@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/09 16:30:03 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/10 13:36:14 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ int ft_printf(const char *str, ...)
 				//strutt = (t_strutt *)malloc(sizeof(t_strutt));
 				if (strutt->prev_was_perc)
 					strutt->prev_was_perc = 0;
-				i = ft_fill_strutt(strutt, str, i, ap);
+
+				if ((i = ft_fill_strutt(strutt, str, i, ap)) == 0)
+					break;
 				ft_use_strutt(strutt, str, i, ap);
 				ret = ret + strutt->total_chars;
 				//i++;
@@ -67,7 +69,9 @@ int		ft_fill_strutt(t_strutt *strutt, const char *str, int i, va_list ap)
 	i = ft_typeflag(strutt, str, i + 1, ap);
 	i = ft_typewidth(strutt, str, i, ap);
 	i = ft_typeprecision(strutt, str, i,ap);
-	strutt->type = ft_typearg(strutt, str, i, ap);
+	if ((strutt->type = ft_typearg(strutt, str, i, ap)) == 0)
+		return 0;
+
 	return (i);
 }
 
@@ -87,6 +91,11 @@ void	ft_init_strutt(t_strutt *strutt)
 
 void	ft_use_strutt(t_strutt *strutt,const char *str, int i, va_list ap)
 {
+	(void)str;
+	(void)i;
+	if (strutt->type == 0)
+		//ft_not_type(strutt, str, i, ap);
+		return ;
 	if (strutt->type == 'd')
 		ft_d(strutt, ap);
 	if (strutt->type == 'c')
@@ -103,8 +112,7 @@ void	ft_use_strutt(t_strutt *strutt,const char *str, int i, va_list ap)
 		ft_p(strutt, ap);
 	if (strutt->type == '%')
 		ft_perc(strutt, ap);
-	if (strutt->type == 0)
-		ft_not_type(strutt, str, i, ap);
+
 
 }
 
