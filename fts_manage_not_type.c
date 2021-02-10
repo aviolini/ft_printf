@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/06 23:15:14 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/10 10:45:42 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/10 14:25:42 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,59 @@ void	ft_num_is_zero(t_strutt *strutt, va_list ap)
 				ft_putchar(" ", 1, strutt);
 			return ;
 		}
+
+}
+
+void	ft_num_is_null(t_strutt *strutt, va_list ap)
+{
+	(void)ap;
+	int x;
+
+	x = 0;
+	strutt->num_is_zero = 1;
+
+	if(!strutt->width)//&& strutt->prec_is_arg)
+	{
+
+		ft_putchar("0x", 2, strutt);
+		return ;
+	}
+	if(strutt->width > 0 && (strutt->precision == -1 || strutt->precision == 0))
+		{
+			while(x++ < strutt->width)
+				ft_putchar(" ", 1, strutt);
+			ft_putchar("0x", 2, strutt);
+			return ;
+		}
+	if (strutt->width > 2)
+		strutt->width = strutt->width - 2;
+	if(strutt->width > 0 && strutt->prec_is_arg)
+	{
+		if (strutt->flag_minus == 0)
+		{
+			if(strutt->flag_zero)
+			{
+				ft_putchar("0x", 2, strutt);
+				while(x++ < strutt->width)
+					ft_putchar("0", 2, strutt);
+			}
+			else
+			{
+				while(x++ < strutt->width)
+					ft_putchar(" ", 1, strutt);
+				ft_putchar("0x", 2, strutt);
+			}
+		}
+		if(strutt->flag_minus == 1)
+		{
+			ft_putchar("0x", 2, strutt);
+			while(x++ < strutt->width)
+				ft_putchar(" ", 1, strutt);
+
+		}
+
+		return ;
+	}
+	ft_putchar("0x", 2, strutt);
 
 }

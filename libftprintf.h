@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/09 16:29:44 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/10 14:02:45 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ char		*ft_strdup(char *str);
 int			ft_size_nbr_uns_diffbase(size_t n, char *base);
 void		ft_putchar(char *str, int size, t_strutt *strutt);
 void		ft_num_is_zero(t_strutt *strutt, va_list ap);
+void		ft_num_is_null(t_strutt *strutt, va_list ap);
 #endif
 
 /*

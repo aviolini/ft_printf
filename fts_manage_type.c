@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/10 13:43:39 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/10 14:07:49 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -255,13 +255,14 @@ void	ft_p(t_strutt *strutt, va_list ap)
 	unsigned long long	n;
 	int					len;
 
-	n = va_arg(ap, unsigned long long);
+	if ((n = va_arg(ap, unsigned long long)) == (unsigned long long)NULL)
+		n = 0;
 	len = ft_size_nbr_uns_diffbase(n, BASE16);
 	str = ft_itoa_base(n, len, BASE16);
 	strutt->width = strutt->width - 2;
 	if (n == 0 && strutt->dot == 1 && (strutt->precision == 0 || strutt->precision == -1))
 	{
-		ft_num_is_zero(strutt, ap);
+		ft_num_is_null(strutt, ap);
 		return ;
 	}
 	if (strutt->flag_minus == 0)
