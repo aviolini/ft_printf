@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/09 23:23:22 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/10 09:44:48 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void	ft_s(t_strutt *strutt, va_list ap)
 //	}
 //	else
 		len = ft_strlen(str);
-	if (strutt->width <= len &&
-		(strutt->precision >= len || strutt->precision == -1))
+	if (strutt->width <= len && ((strutt->dot &&
+		(strutt->precision >= len || strutt->prec_is_arg)) || !strutt->dot))//strutt->precision == -1))
 	{
 		ft_putchar(str, len, strutt);
 		return ;
@@ -99,13 +99,13 @@ void	ft_s(t_strutt *strutt, va_list ap)
 	{
 		if(strutt->width > len)
 		{
-			if(strutt->precision >= len || strutt->precision == -1)
+			if(strutt->precision >= len || strutt->precision <= -1)
 			{
 				ft_space_nbr(strutt->width - len, strutt);
 				ft_putchar(str, len, strutt);
 				return ;
 			}
-			if(strutt->precision < len && strutt->precision != 1)
+			if(strutt->precision < len && strutt->precision != -1)
 			{
 				ft_space_nbr(strutt->width - strutt->precision, strutt);
 				ft_putchar(str, strutt->precision, strutt);
@@ -124,13 +124,13 @@ void	ft_s(t_strutt *strutt, va_list ap)
 	{
 		if(strutt->width > len)
 		{
-			if(strutt->precision >= len || strutt->precision == -1)
+			if(strutt->precision >= len || strutt->precision <= -1)
 			{
 				ft_putchar(str, len, strutt);
 				ft_space_nbr(strutt->width - len, strutt);
 				return ;
 			}
-			if(strutt->precision < len && strutt->precision != 1)
+			if(strutt->precision < len && strutt->precision != -1)
 			{
 				ft_putchar(str, strutt->precision, strutt);
 				ft_space_nbr(strutt->width - strutt->precision, strutt);
@@ -144,6 +144,12 @@ void	ft_s(t_strutt *strutt, va_list ap)
 				return ;
 			}
 	}
+
+	if(strutt->precision == -1)
+		{
+			ft_space_nbr(strutt->width, strutt);
+			return ;
+		}
 
 }
 
