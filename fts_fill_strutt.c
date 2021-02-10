@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:15:37 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/10 13:45:12 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/10 15:45:59 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int		ft_typeprecision(t_strutt *strutt, const char *str, int i, va_list ap)
 	if (str[i] == '.')
 	{
 		strutt->dot = 1;
+		strutt->precision = 0;
 		i++;
 	}
 	if (str[i] == '*')
@@ -96,7 +97,7 @@ int		ft_typeprecision(t_strutt *strutt, const char *str, int i, va_list ap)
 		strutt->precision = x;
 		return (i);
 	}
-	strutt->precision = -1;
+	//strutt->precision = -1;
 	return (i);
 }
 
