@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/10 09:44:48 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/10 10:17:57 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ void	ft_s(t_strutt *strutt, va_list ap)
 	char	*str;
 
 	str = va_arg(ap, char *);
-//	if (str == NULL)
-//	{
-//		len = 7;
-//		str = "(null)\0";
-//	}
-//	else
+	if (str == NULL)
+	{
+		len = 6;
+		str = "(null)";
+	}
+	else
 		len = ft_strlen(str);
 	if (strutt->width <= len && ((strutt->dot &&
 		(strutt->precision >= len || strutt->prec_is_arg)) || !strutt->dot))//strutt->precision == -1))
@@ -184,7 +184,48 @@ void	ft_xXu(t_strutt *strutt, va_list ap, char *base)
 	n = va_arg(ap, unsigned int);
 	len = ft_size_nbr_uns_diffbase(n, base);
 	str = ft_itoa_base(n, len, base);
-	if (strutt->precision <= len && strutt->width <= len)
+	if (n == 0 && strutt->dot == 1 && (strutt->precision == 0 || strutt->precision == -1))
+	{
+		ft_num_is_zero(strutt, ap);
+		return ;
+	}
+
+	if (strutt->flag_minus == 0)
+	{
+		if(strutt->flag_zero && strutt->width > len
+			&& (strutt->precision <= -1 || !strutt->dot))
+		{
+			if(strutt->num_is_neg)
+				ft_putchar("-", 1, strutt);
+			ft_zero_nbr(strutt->width - len, strutt);
+			ft_putchar(str,len,strutt);
+			return ;
+		}
+
+		if(strutt->width > len && strutt->precision <= len)
+			ft_space_nbr(strutt->width - len, strutt);
+		if(strutt->width > strutt->precision && strutt->precision > len)
+			ft_space_nbr(strutt->width - strutt->precision, strutt);
+		if(strutt->num_is_neg)
+			ft_putchar("-", 1, strutt);
+		if(strutt->precision > len)
+			ft_zero_nbr(strutt->precision - len, strutt);
+		ft_putchar(str,len,strutt);
+	}
+	if (strutt->flag_minus == 1)
+	{
+		if(strutt->num_is_neg)
+			ft_putchar("-", 1, strutt);
+		if (strutt->precision > len)
+			ft_zero_nbr(strutt->precision - len, strutt);
+		ft_putchar(str, len, strutt);
+		if(strutt->width > len && strutt->precision <= len)
+			ft_space_nbr(strutt->width - len, strutt);
+		if(strutt->width > strutt->precision && strutt->precision > len)
+			ft_space_nbr(strutt->width - strutt->precision, strutt);
+	}
+
+	/*if (strutt->precision <= len && strutt->width <= len)
 	{
 		//write(1, str, len);
 		ft_putchar(str, len, strutt);
@@ -205,6 +246,7 @@ void	ft_xXu(t_strutt *strutt, va_list ap, char *base)
 		ft_space_nbr(len, strutt);
 	}
 	free(str);
+	*/
 }
 
 void	ft_p(t_strutt *strutt, va_list ap)
@@ -216,6 +258,44 @@ void	ft_p(t_strutt *strutt, va_list ap)
 	n = va_arg(ap, unsigned long long);
 	len = ft_size_nbr_uns_diffbase(n, BASE16);
 	str = ft_itoa_base(n, len, BASE16);
+	strutt->width = strutt->width - 2;
+	if (n == 0 && strutt->dot == 1 && (strutt->precision == 0 || strutt->precision == -1))
+	{
+		ft_num_is_zero(strutt, ap);
+		return ;
+	}
+	if (strutt->flag_minus == 0)
+	{
+		if(strutt->flag_zero && strutt->width > len
+			&& (strutt->precision <= -1 || !strutt->dot))
+		{
+			ft_putchar("0x", 2, strutt);
+			ft_zero_nbr(strutt->width - len, strutt);
+			ft_putchar(str,len,strutt);
+			return ;
+		}
+
+		if(strutt->width > len && strutt->precision <= len)
+			ft_space_nbr(strutt->width - len, strutt);
+		if(strutt->width > strutt->precision && strutt->precision > len)
+			ft_space_nbr(strutt->width - strutt->precision, strutt);
+		ft_putchar("0x", 2, strutt);
+		if(strutt->precision > len)
+			ft_zero_nbr(strutt->precision - len, strutt);
+		ft_putchar(str,len,strutt);
+	}
+	if (strutt->flag_minus == 1)
+	{
+		ft_putchar("0x", 2, strutt);
+		if (strutt->precision > len)
+			ft_zero_nbr(strutt->precision - len, strutt);
+		ft_putchar(str, len, strutt);
+		if(strutt->width > len && strutt->precision <= len)
+			ft_space_nbr(strutt->width - len, strutt);
+		if(strutt->width > strutt->precision && strutt->precision > len)
+			ft_space_nbr(strutt->width - strutt->precision, strutt);
+	}
+	/*
 	if (strutt->precision <= len && strutt->width <= len)
 	{
 		ft_putchar("0x", 2, strutt);
@@ -243,4 +323,5 @@ void	ft_p(t_strutt *strutt, va_list ap)
 		//write(1, str, len);
 		ft_space_nbr(len, strutt);
 	}
+	*/
 }

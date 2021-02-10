@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:15:37 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/09 17:19:08 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/10 10:24:31 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int		ft_typewidth(t_strutt *strutt, const char *str, int i, va_list ap)
 	int x;
 
 	x = 0;
+	while(str[i] == '0' || str[i] == '-')
+		i++;
 	if (str[i] == '*')
 	{
 		x = va_arg(ap, int);
