@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 12:16:04 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:30:27 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		ft_putmax(char *str, t_strutt *strutt);
 int			ft_check_num_arg(va_list ap, int n);
 void		ft_init_strutt(t_strutt *strutt);
 void		ft_printstrutt(t_strutt *strutt);
-void		ft_use_strutt(t_strutt *strutt, const char *str, int i, va_list ap);
+void		ft_use_strutt(t_strutt *strutt, va_list ap);
 void		ft_d(t_strutt *strutt, va_list ap);
 void		ft_c(t_strutt *strutt, va_list ap);
 void		ft_s(t_strutt *strutt, va_list ap);

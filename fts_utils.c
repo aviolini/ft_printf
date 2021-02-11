@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 12:47:17 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:19:53 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		ft_zero(int x, t_strutt *strutt)
 
 int		ft_putchar(char *str, int size, t_strutt *strutt)
 {
+//	if (str[0] == '%')
+	//	strutt->prev_was_perc = 1;
 	write(1, str, size);
 	strutt->total_chars = strutt->total_chars + size;
 	return (1);
@@ -53,7 +55,6 @@ int		ft_strlen(char *str)
 
 void	ft_perc(t_strutt *strutt)
 {
-	strutt->prev_was_perc = 1;
 	if (strutt->flag_minus == 0)
 	{
 		if (strutt->flag_zero)
