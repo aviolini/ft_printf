@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 12:29:38 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 12:54:48 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,53 +14,37 @@
 
 int ft_printf(const char *str, ...)
 {
-	int			ret;
 	int			i;
 	va_list		ap;
 	t_strutt	*strutt;
 
 	i = 0;
-	ret = 0;
 	va_start(ap,str);
 	strutt = (t_strutt *)malloc(sizeof(t_strutt));
-	strutt->prev_was_perc = 0;
+		strutt->total_chars = 0;
 	while (str[i])
 		{
 			if (str[i] == '%' && str[i + 1] == '%')
 			{
-				write(1,&str[i],1);
+				ft_putchar((char *)&(str[i]),1, strutt);
 				i = i + 1;
-				ret++;
 				strutt->prev_was_perc = 1;
-
 			}
 		 	else if (str[i] == '%' && str[i + 1] != '%' && (str[i - 1] != '%'
 			|| strutt->prev_was_perc == 1))
 			{
-				//strutt = (t_strutt *)malloc(sizeof(t_strutt));
-				if (strutt->prev_was_perc)
-					strutt->prev_was_perc = 0;
-
 				if ((i = ft_fill_strutt(strutt, str, i, ap)) == 0)
 					break;
 				ft_use_strutt(strutt, str, i, ap);
-				ret = ret + strutt->total_chars;
-				//i++;
-					//ft_printstrutt(strutt);
 			}
 			else
-			{
-				write(1,&str[i],1);
-				ret++;
-			}
-
+				ft_putchar((char *)&(str[i]),1, strutt);
 			i++;
-
 		}
-	//ft_printstrutt(strutt);
+	i = strutt->total_chars;
 	free(strutt);
 	va_end(ap);
-	return (ret);
+	return (i);
 }
 
 int		ft_fill_strutt(t_strutt *strutt, const char *str, int i, va_list ap)
@@ -82,10 +66,11 @@ void	ft_init_strutt(t_strutt *strutt)
 	strutt->width = 0;
 	strutt->dot = 0;
 	strutt->precision = -1;
-	strutt->total_chars = 0;
+	//strutt->total_chars = 0;
 	strutt->num_is_zero = 0;
 	strutt->num_is_neg = 0;
 	strutt->prec_is_arg = 0;
+	strutt->prev_was_perc = 0;
 	strutt->type = 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 12:21:45 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 12:47:17 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int		ft_strlen(char *str)
 
 void	ft_perc(t_strutt *strutt)
 {
+	strutt->prev_was_perc = 1;
 	if (strutt->flag_minus == 0)
 	{
 		if (strutt->flag_zero)
