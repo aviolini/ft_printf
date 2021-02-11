@@ -6,13 +6,13 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 11:27:15 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 12:22:32 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_printf(const char *str, ...)
+int		ft_printf(const char *str, ...)
 {
 	int			ret;
 	int			i;
@@ -114,22 +114,4 @@ void	ft_use_strutt(t_strutt *strutt,const char *str, int i, va_list ap)
 		ft_perc(strutt);
 
 
-}
-
-
-
-
-
-
-void	ft_printstrutt(t_strutt	*strutt)
-{
-	printf("------strutt--------\n");
-	printf("strutt->flagminus : %i\n", strutt->flag_minus);
-	printf("strutt->flag_zero : %i\n", strutt->flag_zero);
-	printf("strutt->width : %i\n", strutt->width);
-	printf("strutt->dot : %i\n", strutt->dot);
-	printf("strutt->precision : %i\n", strutt->precision);
-	printf("strutt->total_chars : %i\n", strutt->total_chars);
-	printf("type : %c\n", strutt->type);
-	printf("------------------------\n");
 }

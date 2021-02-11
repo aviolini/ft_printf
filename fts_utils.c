@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 12:19:59 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 12:21:45 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,24 @@ int		ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+void	ft_perc(t_strutt *strutt)
+{
+	if (strutt->flag_minus == 0)
+	{
+		if (strutt->flag_zero)
+		{
+			ft_zero(strutt->width - 1, strutt);
+			ft_putchar("%", 1, strutt);
+			return ;
+		}
+		ft_space(strutt->width - 1, strutt);
+		ft_putchar("%", 1, strutt);
+	}
+	if (strutt->flag_minus == 1)
+	{
+		ft_putchar("%", 1, strutt);
+		ft_space(strutt->width - 1, strutt);
+	}
 }
