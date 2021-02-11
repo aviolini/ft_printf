@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:38 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 12:20:02 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 15:01:55 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int		ft_num_is_null(t_strutt *strutt)
 		ft_space(strutt->width, strutt);
 		if (strutt->width > 2)
 			strutt->width = strutt->width - 2;
-			ft_putchar("0x", 2, strutt);
+		ft_putchar("0x", 2, strutt);
 		return (1);
 	}
 	return (0);

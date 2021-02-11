@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 12:16:44 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 15:00:23 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ void	ft_c(t_strutt *strutt, va_list ap)
 	c = va_arg(ap, int);
 	if (strutt->flag_minus == 0)
 	{
-		ft_space(strutt->width -1, strutt);
+		ft_space(strutt->width - 1, strutt);
 		ft_putchar(&c, 1, strutt);
 	}
 	if (strutt->flag_minus == 1)
 	{
 		ft_putchar(&c, 1, strutt);
-		ft_space(strutt->width -1, strutt);
+		ft_space(strutt->width - 1, strutt);
 	}
 }
 
