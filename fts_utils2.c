@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:38 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 10:19:10 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 10:58:06 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,27 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-int		ft_zero_rather_space(char *str, int len, t_strutt *strutt)
+int		ft_zero_rather_space_sdxu(char *str, int len, t_strutt *strutt)
 {
 	if (strutt->flag_zero && strutt->width > len
 		&& (strutt->precision <= -1 || !strutt->dot))
 	{
 		if (strutt->num_is_neg)
 			ft_putchar("-", 1, strutt);
+		ft_zero_nbr(strutt->width - len, strutt);
+		ft_putchar(str, len, strutt);
+		return (1);
+	}
+	return (0);
+}
+
+int		ft_zero_rather_space_p(char *str, int len, t_strutt *strutt)
+{
+	if (strutt->flag_zero && strutt->width > len
+		&& (strutt->precision <= -1 || !strutt->dot))
+	{
+		if (strutt->num_is_neg)
+			ft_putchar("0x", 2, strutt);
 		ft_zero_nbr(strutt->width - len, strutt);
 		ft_putchar(str, len, strutt);
 		return (1);

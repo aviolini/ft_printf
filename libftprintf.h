@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 10:41:43 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 10:59:25 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ int		ft_num_is_zero(t_strutt *strutt);
 int		ft_num_is_neg(t_strutt *strutt, int num);
 void		ft_num_is_null(t_strutt *strutt, va_list ap);
 int		ft_print_dxu(char *str, int len, t_strutt *strutt);
-int			ft_zero_rather_space(char *str, int len, t_strutt *strutt);
+int		ft_print_p(char *str, int len, t_strutt *strutt);
+int			ft_zero_rather_space_sdxu(char *str, int len, t_strutt *strutt);
+int		ft_zero_rather_space_p(char *str, int len, t_strutt *strutt);
 #endif
 
 /*
