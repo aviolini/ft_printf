@@ -6,30 +6,11 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 15:05:38 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 11:51:59 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 12:20:02 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-int		ft_putchar(char *str, int size, t_strutt *strutt)
-{
-	write(1, str, size);
-	strutt->total_chars = strutt->total_chars + size;
-	return (1);
-}
-
-int		ft_strlen(char *str)
-{
-	int i;
-
-	if (!str)
-		return (-1);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 int		ft_zero_rather_space_sdxu(char *str, int len, t_strutt *strutt)
 {
@@ -38,7 +19,7 @@ int		ft_zero_rather_space_sdxu(char *str, int len, t_strutt *strutt)
 	{
 		if (strutt->num_is_neg)
 			ft_putchar("-", 1, strutt);
-		ft_zero_nbr(strutt->width - len, strutt);
+		ft_zero(strutt->width - len, strutt);
 		ft_putchar(str, len, strutt);
 		return (1);
 	}
@@ -52,7 +33,7 @@ int		ft_zero_rather_space_p(char *str, int len, t_strutt *strutt)
 	{
 		if (strutt->num_is_neg)
 			ft_putchar("0x", 2, strutt);
-		ft_zero_nbr(strutt->width - len, strutt);
+		ft_zero(strutt->width - len, strutt);
 		ft_putchar(str, len, strutt);
 		return (1);
 	}
@@ -71,17 +52,17 @@ int		ft_num_is_zero(t_strutt *strutt)
 			if (strutt->flag_minus == 0 && strutt->prec_is_arg)
 			{
 				if (strutt->flag_zero)
-					return (ft_zero_nbr(strutt->width, strutt));
-				ft_space_nbr(strutt->width - 1, strutt);
+					return (ft_zero(strutt->width, strutt));
+				ft_space(strutt->width - 1, strutt);
 				ft_putchar("0", 1, strutt);
 			}
 			if (strutt->flag_minus == 1 && strutt->prec_is_arg)
 			{
 				ft_putchar("0", 1, strutt);
-				ft_space_nbr(strutt->width - 1, strutt);
+				ft_space(strutt->width - 1, strutt);
 			}
 			if (strutt->precision == 0)
-				ft_space_nbr(strutt->width, strutt);
+				ft_space(strutt->width, strutt);
 		}
 		return (1);
 	}
@@ -93,7 +74,7 @@ int		ft_num_is_null(t_strutt *strutt)
 	strutt->num_is_zero = 1;
 	if (strutt->dot == 1 && (strutt->precision == 0))
 	{
-		ft_space_nbr(strutt->width, strutt);
+		ft_space(strutt->width, strutt);
 		if (strutt->width > 2)
 			strutt->width = strutt->width - 2;
 			ft_putchar("0x", 2, strutt);

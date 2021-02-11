@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 11:51:22 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 12:16:04 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void		ft_xu(t_strutt *strutt, va_list ap, char *base);
 void		ft_p(t_strutt *strutt, va_list ap);
 void		ft_perc(t_strutt *strutt);
 void		ft_not_type(t_strutt *strutt,const char *str, int i, va_list ap);
-int		ft_space_nbr(int y, t_strutt *strutt);
-int		ft_zero_nbr(int x, t_strutt *strutt);
+int		ft_space(int y, t_strutt *strutt);
+int		ft_zero(int x, t_strutt *strutt);
 void		ft_putnbr_str(char *str, t_strutt *strutt);
 void		ft_space_str(int len, t_strutt *strutt);
 void		ft_putstr(char *str, int len, t_strutt *strutt);
