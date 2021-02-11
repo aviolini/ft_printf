@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 10:42:30 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:27:15 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	ft_use_strutt(t_strutt *strutt,const char *str, int i, va_list ap)
 	if (strutt->type == 'p')
 		ft_p(strutt, ap);
 	if (strutt->type == '%')
-		ft_perc(strutt, ap);
+		ft_perc(strutt);
 
 
 }

@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 10:59:25 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:26:52 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void		ft_c(t_strutt *strutt, va_list ap);
 void		ft_s(t_strutt *strutt, va_list ap);
 void		ft_xu(t_strutt *strutt, va_list ap, char *base);
 void		ft_p(t_strutt *strutt, va_list ap);
-void		ft_perc(t_strutt *strutt, va_list ap);
+void		ft_perc(t_strutt *strutt);
 void		ft_not_type(t_strutt *strutt,const char *str, int i, va_list ap);
 int		ft_space_nbr(int y, t_strutt *strutt);
 int		ft_zero_nbr(int x, t_strutt *strutt);
@@ -78,8 +78,11 @@ int		ft_num_is_neg(t_strutt *strutt, int num);
 void		ft_num_is_null(t_strutt *strutt, va_list ap);
 int		ft_print_dxu(char *str, int len, t_strutt *strutt);
 int		ft_print_p(char *str, int len, t_strutt *strutt);
+int		ft_print_s(char *str, int len, t_strutt *strutt);
 int			ft_zero_rather_space_sdxu(char *str, int len, t_strutt *strutt);
 int		ft_zero_rather_space_p(char *str, int len, t_strutt *strutt);
+int		ft_print_s_fl_min_0(char *str, int len, t_strutt *strutt);
+int		ft_print_s_fl_min_1(char *str, int len, t_strutt *strutt);
 #endif
 
 /*
