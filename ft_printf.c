@@ -6,13 +6,13 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 12:22:32 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 12:29:38 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ft_printf(const char *str, ...)
+int ft_printf(const char *str, ...)
 {
 	int			ret;
 	int			i;
