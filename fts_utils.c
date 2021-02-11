@@ -6,63 +6,67 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/10 15:54:06 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 15:01:32 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_space_nbr(int y, t_strutt *strutt)
+int		ft_space(int y, t_strutt *strutt)
 {
 	int i;
 
 	i = 0;
 	while (i++ < y)
 		ft_putchar(" ", 1, strutt);
+	return (1);
 }
 
-void	ft_zero_nbr(int x, t_strutt *strutt)
+int		ft_zero(int x, t_strutt *strutt)
 {
 	int i;
 
 	i = 0;
-		while (i++ < x)
-			ft_putchar("0", 1, strutt);
-
+	while (i++ < x)
+		ft_putchar("0", 1, strutt);
+	return (1);
 }
 
-void	ft_putnbr_str(char *str, t_strutt *strutt)
+int		ft_putchar(char *str, int size, t_strutt *strutt)
 {
-	(void)str;
-	(void)strutt;
-	//int i;
-
-//	i = 0;
-
+	write(1, str, size);
+	strutt->total_chars = strutt->total_chars + size;
+	return (1);
 }
 
-void	ft_space_str(int len, t_strutt *strutt)
+int		ft_strlen(char *str)
 {
-	int x;
-	int y;
+	int i;
 
-	x = 0;
-	if (strutt->precision <= len)
-		y = strutt->width - strutt->precision;
-	if (strutt->precision > len || strutt->precision == -1)
-		y = strutt->width - len;
-	if (len == -1)
-		y = strutt->width - 1;
-	while (x++ < y)
-		ft_putchar(" ", 1, strutt);
+	if (!str)
+		return (-1);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-void	ft_putstr(char *str, int len, t_strutt *strutt)
+void	ft_perc(t_strutt *strutt)
 {
-	if (strutt->precision <= len)
-		ft_putchar(str, strutt->precision, strutt);
-		//write(1, str, strutt->precision);
-	if (strutt->precision > len || strutt->precision == -1)
-		ft_putchar(str, len, strutt);
-		//write(1, str, len);
+	if (strutt->flag_minus == 0)
+	{
+		if (strutt->flag_zero)
+		{
+			ft_zero(strutt->width - 1, strutt);
+			ft_putchar("%", 1, strutt);
+			return ;
+		}
+		ft_space(strutt->width - 1, strutt);
+		ft_putchar("%", 1, strutt);
+	}
+	if (strutt->flag_minus == 1)
+	{
+		ft_putchar("%", 1, strutt);
+		ft_space(strutt->width - 1, strutt);
+	}
 }

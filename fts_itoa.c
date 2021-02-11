@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:46:49 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/10 15:54:19 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 15:03:35 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int		ft_size_nbr(int n)
 	int i;
 
 	i = 0;
-	if ( n == 0)
+	if (n == 0)
 		i++;
 	if (n < 0)
-		{
-			n = n * -1;
-			i++;
-		}
+	{
+		n = n * -1;
+		i++;
+	}
 	while (n > 0)
 	{
 		n = n / 10;
@@ -34,9 +34,10 @@ int		ft_size_nbr(int n)
 
 char	*ft_itoa(int n)
 {
-	char *str;
-	int i;
-	int len;
+	char	*str;
+	int		i;
+	int		len;
+
 	if (n == -2147483648)
 	{
 		str = ft_strdup("2147483648");
@@ -45,12 +46,6 @@ char	*ft_itoa(int n)
 	len = ft_size_nbr(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	i = -1;
-//	if (n < 0)
-//	{
-//		n = n * - 1;
-//		str[0] = '-';
-//		i++;
-//	}
 	str[len] = '\0';
 	while (--len > i)
 	{
@@ -86,7 +81,7 @@ char	*ft_itoa_base(size_t n, int len, char *base)
 	size_base = ft_strlen(base);
 	x = 0;
 	str = (char *)malloc(sizeof(char) * len);
-	while(len-- >= x)
+	while (len-- >= x)
 	{
 		str[len] = base[(n % size_base)];
 		n = n / size_base;
