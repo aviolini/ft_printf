@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 10:01:08 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:56:17 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_space_nbr(int y, t_strutt *strutt)
 	i = 0;
 	while (i++ < y)
 		ft_putchar(" ", 1, strutt);
-	return (1); 
+	return (1);
 }
 
 int		ft_zero_nbr(int x, t_strutt *strutt)
