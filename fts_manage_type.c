@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/05 09:15:48 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 11:25:44 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 11:47:54 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	ft_p(t_strutt *strutt, va_list ap)
 	if (n == 0 && strutt->dot == 1 && (strutt->precision == 0
 		|| strutt->precision == -1))
 	{
-		ft_num_is_null(strutt, ap);
+		ft_num_is_null(strutt);
 		return ;
 	}
 	if (strutt->flag_minus == 0 && ft_zero_rather_space_p(str, len, strutt))
