@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/10 15:53:51 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 10:42:30 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,11 +103,11 @@ void	ft_use_strutt(t_strutt *strutt,const char *str, int i, va_list ap)
 	if (strutt->type == 's')
 		ft_s(strutt, ap);
 	if (strutt->type == 'x')
-		ft_xXu(strutt, ap, BASE16);
+		ft_xu(strutt, ap, BASE16);
 	if (strutt->type == 'X')
-		ft_xXu(strutt, ap, BASE16X);
+		ft_xu(strutt, ap, BASE16X);
 	if (strutt->type == 'u')
-		ft_xXu(strutt, ap , BASE10);
+		ft_xu(strutt, ap , BASE10);
 	if (strutt->type == 'p')
 		ft_p(strutt, ap);
 	if (strutt->type == '%')
