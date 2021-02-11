@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 14:30:27 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:46:52 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ int			ft_zero_rather_space_sdxu(char *str, int len, t_strutt *strutt);
 int		ft_zero_rather_space_p(char *str, int len, t_strutt *strutt);
 int		ft_print_s_fl_min_0(char *str, int len, t_strutt *strutt);
 int		ft_print_s_fl_min_1(char *str, int len, t_strutt *strutt);
+int		ft_char_is_perc(const char *str, int i, t_strutt *strutt);
+int		ft_char_is_2perc(const char *str, int i, t_strutt *strutt);
 #endif
 
 /*

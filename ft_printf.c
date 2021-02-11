@@ -6,51 +6,38 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 08:42:19 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/11 14:33:54 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:51:55 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_printf(const char *str, ...)
+int		ft_printf(const char *str, ...)
 {
 	int			i;
 	va_list		ap;
 	t_strutt	*strutt;
 
 	i = 0;
-	va_start(ap,str);
+	va_start(ap, str);
 	strutt = (t_strutt *)malloc(sizeof(t_strutt));
 	strutt->total_chars = 0;
 	while (str[i])
+	{
+		if (ft_char_is_perc(str, i, strutt))
 		{
-		  if (str[i] == '%' && str[i + 1] != '%' && (str[i - 1] != '%'
-		  || strutt->prev_was_perc == 1))
-			{
-				if ((i = ft_fill_strutt(strutt, str, i, ap)) == 0)
-					break;
-				ft_use_strutt(strutt, ap);
-			}
-			else if (str[i] == '%' && str[i + 1] == '%' && (strutt->prev_was_perc = 1))
-				ft_putchar((char *)&(str[i++]), 1, strutt);
-			else
-				ft_putchar((char *)&(str[i]), 1, strutt);
-			i++;
+			if ((i = ft_fill_strutt(strutt, str, i, ap)) == 0)
+				break ;
 		}
+		else if (ft_char_is_2perc(str, i, strutt))
+			ft_putchar((char *)&(str[i++]), 1, strutt);
+		else
+			ft_putchar((char *)&(str[i]), 1, strutt);
+		i++;
+	}
 	i = strutt->total_chars;
 	free(strutt);
 	va_end(ap);
-	return (i);
-}
-
-int		ft_fill_strutt(t_strutt *strutt, const char *str, int i, va_list ap)
-{
-	ft_init_strutt(strutt);
-	i = ft_typeflag(strutt, str, i + 1, ap);
-	i = ft_typewidth(strutt, str, i, ap);
-	i = ft_typeprecision(strutt, str, i,ap);
-	if ((strutt->type = ft_typearg(strutt, str, i, ap)) == 0)
-		return 0;
 	return (i);
 }
 
@@ -83,9 +70,25 @@ void	ft_use_strutt(t_strutt *strutt, va_list ap)
 	if (strutt->type == 'X')
 		ft_xu(strutt, ap, BASE16X);
 	if (strutt->type == 'u')
-		ft_xu(strutt, ap , BASE10);
+		ft_xu(strutt, ap, BASE10);
 	if (strutt->type == 'p')
 		ft_p(strutt, ap);
 	if (strutt->type == '%')
 		ft_perc(strutt);
+}
+
+int		ft_char_is_perc(const char *str, int i, t_strutt *strutt)
+{
+	if (str[i] == '%' && str[i + 1] != '%' && (str[i - 1] != '%'
+	|| strutt->prev_was_perc == 1))
+		return (1);
+	return (0);
+}
+
+int		ft_char_is_2perc(const char *str, int i, t_strutt *strutt)
+{
+	if (str[i] == '%' && str[i + 1] == '%'
+	&& (strutt->prev_was_perc = 1))
+		return (1);
+	return (0);
 }

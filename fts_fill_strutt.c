@@ -6,11 +6,23 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 18:15:37 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/10 15:53:59 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 14:51:35 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+int		ft_fill_strutt(t_strutt *strutt, const char *str, int i, va_list ap)
+{
+	ft_init_strutt(strutt);
+	i = ft_typeflag(strutt, str, i + 1, ap);
+	i = ft_typewidth(strutt, str, i, ap);
+	i = ft_typeprecision(strutt, str, i,ap);
+	if ((strutt->type = ft_typearg(strutt, str, i, ap)) == 0)
+		return 0;
+	ft_use_strutt(strutt, ap);
+	return (i);
+}
 
 int		ft_typeflag(t_strutt *strutt, const char *str, int i, va_list ap)
 {
