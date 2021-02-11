@@ -6,7 +6,7 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 09:28:03 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/10 15:53:47 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 10:21:07 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,19 @@ void		ft_xXu(t_strutt *strutt, va_list ap, char *base);
 void		ft_p(t_strutt *strutt, va_list ap);
 void		ft_perc(t_strutt *strutt, va_list ap);
 void		ft_not_type(t_strutt *strutt,const char *str, int i, va_list ap);
-void		ft_space_nbr(int y, t_strutt *strutt);
-void		ft_zero_nbr(int x, t_strutt *strutt);
+int		ft_space_nbr(int y, t_strutt *strutt);
+int		ft_zero_nbr(int x, t_strutt *strutt);
 void		ft_putnbr_str(char *str, t_strutt *strutt);
 void		ft_space_str(int len, t_strutt *strutt);
 void		ft_putstr(char *str, int len, t_strutt *strutt);
 char		*ft_itoa_base(size_t n, int len, char *base);
 char		*ft_strdup(char *str);
 int			ft_size_nbr_uns_diffbase(size_t n, char *base);
-void		ft_putchar(char *str, int size, t_strutt *strutt);
-void		ft_num_is_zero(t_strutt *strutt, va_list ap);
+int		ft_putchar(char *str, int size, t_strutt *strutt);
+int		ft_num_is_zero(t_strutt *strutt);
+int		ft_num_is_neg(t_strutt *strutt, int num);
 void		ft_num_is_null(t_strutt *strutt, va_list ap);
+int			ft_zero_rather_space(char *str, int len, t_strutt *strutt);
 #endif
 
 /*

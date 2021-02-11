@@ -6,29 +6,30 @@
 /*   By: aviolini <aviolini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/04 14:23:57 by aviolini          #+#    #+#             */
-/*   Updated: 2021/02/10 15:54:06 by aviolini         ###   ########.fr       */
+/*   Updated: 2021/02/11 10:01:08 by aviolini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_space_nbr(int y, t_strutt *strutt)
+int	ft_space_nbr(int y, t_strutt *strutt)
 {
 	int i;
 
 	i = 0;
 	while (i++ < y)
 		ft_putchar(" ", 1, strutt);
+	return (1); 
 }
 
-void	ft_zero_nbr(int x, t_strutt *strutt)
+int		ft_zero_nbr(int x, t_strutt *strutt)
 {
 	int i;
 
 	i = 0;
 		while (i++ < x)
 			ft_putchar("0", 1, strutt);
-
+	return (1);
 }
 
 void	ft_putnbr_str(char *str, t_strutt *strutt)
